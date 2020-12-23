@@ -69,11 +69,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-### `npm install --save bootstrap` & `npm install --save reactstrap` set up boostrap
-
-This section has moved here: [https://reactstrap.github.io/](https://reactstrap.github.io/)
-
-### `npm install --save-dev node-sass@4.14.1` set up node sass
-
-This section has moved here: [https://www.npmjs.com/package/node-sass](https://www.npmjs.com/package/node-sass)
