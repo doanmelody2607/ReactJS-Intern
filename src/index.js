@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -6,9 +6,13 @@ import reportWebVitals from './reportWebVitals';
 // Set up Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// import i18n (needs to be bundled ;))
+import "./i18n";
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Suspense fallback='Loading ....'>
+      <App />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );
