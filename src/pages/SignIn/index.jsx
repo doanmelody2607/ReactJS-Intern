@@ -11,6 +11,7 @@ import {
   FormText,
 } from "reactstrap";
 import { useRouteMatch } from "react-router-dom";
+import usersApi from "api/usersApi";
 
 SignIn.propTypes = {};
 
@@ -29,13 +30,24 @@ function SignIn(props) {
   function handlePassword(e) {
     setPassword(e.target.value);
   }
+
   const handleClickLogin = (e) => {
-    if (username === "huy" && password === "123") console.log("login success");
-    else console.log("login faild");
+    const params = {
+      username: username,
+      password: password,
+    };
+    console.log("params", params);
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const reponse = usersApi.get(params);
+        resolve(reponse);
+      }, 2000);
+    }).then(function (result) {
+        if(result.length != 0) console.log("Login success");
+        else console.log("Login Faild"); 
+    });
   };
 
-  const matchurl = useRouteMatch();
-  console.log({ matchurl });
   return (
     <Form onSubmit={handOnsubmit} className="form__signin">
       <FormGroup row>
