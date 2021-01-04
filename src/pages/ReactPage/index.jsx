@@ -1,7 +1,10 @@
 import React from "react";
 import logo from "../../logo.svg";
 import { useTranslation, Trans } from "react-i18next";
+<<<<<<< HEAD
 import ControlCarousel from '../../components/Carousel'
+=======
+>>>>>>> da70d5d7f78175deba5e50d37b87b7f99ac7528f
 
 const ReactPage = () => {
   const { t, i18n } = useTranslation();
@@ -17,7 +20,10 @@ const ReactPage = () => {
   );
   return (
     <div className="App">
+<<<<<<< HEAD
       <ControlCarousel />
+=======
+>>>>>>> da70d5d7f78175deba5e50d37b87b7f99ac7528f
       <nav style={{ width: "100%", padding: "2rem", backgroundColor: "gray" }}>
         <button onClick={() => handleChangeLanguageClick("en")}>English</button>
         <button onClick={() => handleChangeLanguageClick("vi")}>
