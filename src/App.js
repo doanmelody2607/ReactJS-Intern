@@ -21,7 +21,6 @@ function App() {
         <button onClick={() => handleChangeLanguageClick("vi")}>
           Tiếng Việt
         </button>
-        <button onClick={() => handleChangeLanguageClick("de")}>French</button>
       </nav>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
