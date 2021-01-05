@@ -14,6 +14,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Homepage} />
+        <Route path="/services" exact component={ReactPage} />
         <Route path="/sign-in" exact component={SignInPage} />
       </Switch>
       <Footer />
