@@ -10,20 +10,23 @@ import {
   Input,
   FormText,
 } from "reactstrap";
-import { useRouteMatch } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import usersApi from "api/usersApi";
+import { useDispatch, useSelector } from "react-redux";
+import { checkSignIn, User } from "../userSlice";
 
-SignIn.propTypes = {};
+Main.propTypes = {};
 
-SignIn.defaultProps = {};
+Main.defaultProps = {};
 
-function SignIn(props) {
+function Main(props) {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handOnsubmit = (e) => {
     e.preventDefault();
   };
-
   function handleUserName(e) {
     setUsername(e.target.value);
   }
@@ -31,21 +34,23 @@ function SignIn(props) {
     setPassword(e.target.value);
   }
 
-  const handleClickLogin = (e) => {
+  const handleClickLogin = async (e) => {
     const params = {
       username: username,
       password: password,
     };
-    console.log("params", params);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const reponse = usersApi.get(params);
-        resolve(reponse);
-      }, 2000);
-    }).then(function (result) {
-        if(result.length != 0) console.log("Login success");
-        else console.log("Login Faild"); 
-    });
+
+    const reponse = await usersApi.get(params);
+    const action = checkSignIn(true);
+    if (reponse.length != 0) {
+      dispatch(action);
+
+      const action1 = User(JSON.stringify(reponse));
+      localStorage.setItem('isCheck', true);
+      localStorage.setItem('user', JSON.stringify(reponse));
+      dispatch(action1);
+      history.push("/");
+    } else console.log("khong");
   };
 
   return (
@@ -91,4 +96,4 @@ function SignIn(props) {
     </Form>
   );
 }
-export default SignIn;
+export default Main;

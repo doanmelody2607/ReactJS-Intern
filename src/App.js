@@ -6,8 +6,7 @@ import ReactPage from "./pages/ReactPage";
 import SignUpPage from "./pages/SignUp";
 import Footer from "./components/Footer";
 import Homepage from "./pages/Homepage";
-import SignInPage from "./pages/SignIn";
-import Footer from "./components/Footer";
+import SignInPage from "./features/SignIn/Main";
 
 function App() {
   return (

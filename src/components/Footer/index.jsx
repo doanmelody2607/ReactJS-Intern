@@ -1,9 +1,6 @@
 import React from "react";
 import { animateScroll as scroll } from "react-scroll";
-<<<<<<< HEAD
 import { SiMercedes } from "react-icons/si";
-=======
->>>>>>> da70d5d7f78175deba5e50d37b87b7f99ac7528f
 import {
   FaFacebook,
   FaInstagram,
@@ -76,11 +73,7 @@ const Footer = () => {
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to="/" onClick={toggleHome}>
-<<<<<<< HEAD
               <SiMercedes className="mr-2"/> Mercedes
-=======
-              <FaTrophy /> mIO
->>>>>>> da70d5d7f78175deba5e50d37b87b7f99ac7528f
             </SocialLogo>
             <WebsiteRights>
               mIO © {new Date().getFullYear()}

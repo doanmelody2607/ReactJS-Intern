@@ -1,6 +1,6 @@
 import React from "react";
-import ControlCarousel from "../../components/Carousel";
-import Products from "../../components/Products";
+import ControlCarousel from "components/Carousel";
+import Products from "components/Products";
 
 const Homepage = () => {
   return (
