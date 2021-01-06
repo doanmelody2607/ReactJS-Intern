@@ -1,47 +1,18 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useTranslation, Trans } from "react-i18next";
-
+import LoginAdminPage from "components/LoginAdmin";
+import CustomerPage from "pages/Customer";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.scss";
+import AdminPage from "./pages/Admin";
 function App() {
-  const { t, i18n } = useTranslation();
-  function handleChangeLanguageClick(lang) {
-    i18n.changeLanguage(lang);
-  }
-  const name = "df";
-  const a = (
-    <Trans
-      i18nKey="title" // optional -> fallbacks to defaults if not provided
-      components={{ bold: <strong /> }}
-    />
-  );
   return (
-    <div className="App">
-      <nav style={{ width: "100%", padding: "2rem", backgroundColor: "gray" }}>
-        <button onClick={() => handleChangeLanguageClick("en")}>English</button>
-        <button onClick={() => handleChangeLanguageClick("vi")}>
-          Tiếng Việt
-        </button>
-        <button onClick={() => handleChangeLanguageClick("de")}>French</button>
-      </nav>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{a}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <p>{t("description.part1")}</p>
-          <p>{t("description.part2")}</p>
-        </a>
-
-        <Trans i18nKey="title">
-          Hello <strong>{{ name }}</strong>.
-        </Trans>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/admin/login" component={LoginAdminPage} />
+        <Route path="/admin" component={AdminPage} />
+        <Route path="/" component={CustomerPage} />
+      </Switch>
+    </Router>
   );
 }
-
 export default App;
