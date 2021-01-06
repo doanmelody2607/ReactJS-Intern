@@ -1,19 +1,10 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import "./SignIn.scss";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-} from "reactstrap";
-import { useHistory, useRouteMatch } from "react-router-dom";
 import usersApi from "api/usersApi";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 import { checkSignIn, User } from "../userSlice";
+import "./SignIn.scss";
 
 Main.propTypes = {};
 
@@ -46,8 +37,8 @@ function Main(props) {
       dispatch(action);
 
       const action1 = User(JSON.stringify(reponse));
-      localStorage.setItem('isCheck', true);
-      localStorage.setItem('user', JSON.stringify(reponse));
+      localStorage.setItem("isCheck", true);
+      localStorage.setItem("user", JSON.stringify(reponse));
       dispatch(action1);
       history.push("/");
     } else console.log("khong");

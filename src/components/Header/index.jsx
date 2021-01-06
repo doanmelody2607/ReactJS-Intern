@@ -9,21 +9,21 @@ function Header(props) {
   const [modalShow, setModalShow] = useState(false);
   const isCheckSignIn = useSelector((state) => state.user.isCheckSignIn);
   const getUser = useSelector((state) => state.user.initialUser);
-  const user = localStorage.getItem('user') ? JSON.parse(getUser) : getUser;
+  const user = localStorage.getItem("user") ? JSON.parse(getUser) : getUser;
 
-  function handleClickLogout(){
-      localStorage.removeItem('isCheck');
-      window.location.reload(false);
+  function handleClickLogout() {
+    localStorage.removeItem("isCheck");
+    window.location.reload(false);
   }
   return (
     <>
-      <Navbar className="navbar" variant="light" expand="lg" sticky="top">
+      <Navbar className="navbar " variant="light" expand="lg" sticky="top">
         <Navbar.Brand href="/">
           <SiMercedes /> Mercedes
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="m-auto">
+          <Nav className="mr-auto">
             <Nav.Link href="/" className="ml-3">
               Home
             </Nav.Link>
@@ -39,15 +39,13 @@ function Header(props) {
             </Nav.Link>
           </Nav>
           {isCheckSignIn ? (
-             <div className="d-flex align-items-center">
-             <div className="mr-2">{user[0].name}</div>
-             <FaUserCircle 
-             className="mr-2"/>
-             <div 
-             className="navbar__user-logout" 
-             onClick={handleClickLogout}
-             >Log out</div>
-           </div>
+            <div className="d-flex align-items-center">
+              <div className="mr-2">{user[0].name}</div>
+              <FaUserCircle className="mr-2" />
+              <div className="navbar__user-logout" onClick={handleClickLogout}>
+                Log out
+              </div>
+            </div>
           ) : (
             <Button
               className="nav__button bg-primary text-white"
