@@ -1,21 +1,24 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import ReactPage from "./pages/ReactPage";
 import SignUpPage from "./pages/SignUp";
 import Footer from "./components/Footer";
 import Homepage from "./pages/Homepage";
-import SignInPage from "./pages/SignIn";
+import SignInPage from "./features/SignIn/Main";
+import data from './appData';
 
 function App() {
+  const { products } = data;
+
   return (
     <Router>
       <Header />
       <Switch>
         <Route path="/" exact component={Homepage} />
-        <Route path="/services" exact component={ReactPage} />
-        <Route path="/sign-in" exact component={SignInPage} />
+        <Route path="/signin" exact component={SignInPage} />
+        <Route path="/signup" exact component={SignUpPage} />
       </Switch>
       <Footer />
     </Router>
