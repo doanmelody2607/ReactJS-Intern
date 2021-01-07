@@ -1,28 +1,20 @@
-import React, { useState } from "react";
+import LoginAdminPage from "components/LoginAdmin";
+import CustomerPage from "pages/Customer";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/Header";
-import SignUpPage from "./pages/SignUp";
-import Footer from "./components/Footer";
-import Homepage from "./pages/Homepage";
-import SignInPage from "./features/SignIn/Main";
-import Products from "./components/Products";
-import CartPage from "./pages/CartPage";
-import data from './appData';
+import AdminPage from "./pages/Admin";
 
 function App() {
 
   return (
     <Router>
-      <Header />
       <Switch>
-        <Route path="/" exact component={Homepage} />
-        <Route path="/signin" exact component={SignInPage} />
-        <Route path="/signup" exact component={SignUpPage} />
+        <Route path="/admin/login" component={LoginAdminPage} />
+        <Route path="/admin" component={AdminPage} />
+        <Route path="/" component={CustomerPage} />
       </Switch>
-      <Footer />
     </Router>
   );
 }
-
 export default App;

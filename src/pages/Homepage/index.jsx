@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ControlCarousel from "components/Carousel";
 import Products from "components/Products";
 import data from "../../appData";

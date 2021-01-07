@@ -1,13 +1,6 @@
 .navbar {
   text-align: center;
   background-color: #f5f4f4;
-  width: 100%;
-
-.username-logan {
-  margin-left: 120px;
-}
- 
-  
   &__user-logout:hover {
     cursor: pointer;
     text-decoration: underline;

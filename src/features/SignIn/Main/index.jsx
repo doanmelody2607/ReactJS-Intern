@@ -1,19 +1,10 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import "./SignIn.scss";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-} from "reactstrap";
-import { useHistory, useRouteMatch } from "react-router-dom";
 import usersApi from "api/usersApi";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 import { checkSignIn, User } from "../userSlice";
+import "./SignIn.scss";
 
 Main.propTypes = {};
 
@@ -85,7 +76,7 @@ function Main(props) {
       </FormGroup>
       <FormGroup row>
         <Col sm={{ size: 10, offset: 4 }}>
-          <Button href="#" type="submit" onClick={handleClickLogin}>
+          <Button type="submit" onClick={handleClickLogin}>
             Login
           </Button>
           <Button href="/signup" className="bg-primary ml-2">
