@@ -35,7 +35,7 @@ function Main(props) {
     const action = checkSignIn(true);
     if (reponse.length != 0) {
       dispatch(action);
-
+      
       const action1 = User(JSON.stringify(reponse));
       localStorage.setItem("isCheck", true);
       localStorage.setItem("user", JSON.stringify(reponse));
