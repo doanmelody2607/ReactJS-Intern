@@ -4,7 +4,7 @@ const data = {
       id: 1,
       title: "Mercedes S450",
       image: "https://i.xeoto.com.vn/auto/w250/mercedes/s450/mercedes-s450-2020.png",
-      price: 1000,
+      price: '2.000.000.000 VNĐ',
       company: "Mercedes-Benz",
       info: "This is A-Sedan Class ....",
       inCart: false,

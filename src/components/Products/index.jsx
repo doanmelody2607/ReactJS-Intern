@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "./product";
-import { CardDeck, Card, Button } from "react-bootstrap";
 import './Products.scss';
 
 function Products(props) {

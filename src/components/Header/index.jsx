@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Nav, Navbar, NavDropdown, Dropdown } from "react-bootstrap";
 import { FaUserCircle } from "react-icons/fa";
 import { SiMercedes } from "react-icons/si";
+import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import AboutUs from "../Modal";
 import "./Header.scss";
@@ -59,6 +60,19 @@ function Header(props) {
               Sign In
             </Button>
           )}
+
+          <Nav className="ml-2">
+            <Nav.Link href="/cart-details">
+              <FaShoppingCart />{" "}
+            </Nav.Link>
+
+            {props.countCartItems ? (
+              <button className="badge">{props.countCartItems}</button>
+            ) : (
+              ""
+            )}
+          </Nav>
+
           <NavDropdown title="Vietnamese" id="basic-nav-dropdown">
             <NavDropdown.Item>English</NavDropdown.Item>
           </NavDropdown>
