@@ -1,33 +1,112 @@
-import LoginAdminPage from "components/LoginAdmin";
+import DashBoardPage from "components/Admin/DashBoard";
+import ListCarsPage from "components/Admin/ListCars";
+import ListUsersPage from "components/Admin/ListUsers";
+
 import React, { useEffect } from "react";
+import "./Admin.scss";
 import {
   BrowserRouter,
-  BrowserRouter as Router,
+  Link,
   Route,
+  BrowserRouter as Router,
   Switch,
   useHistory,
   useRouteMatch,
 } from "react-router-dom";
+import SideNav, {
+  Toggle,
+  Nav,
+  NavItem,
+  NavIcon,
+  NavText,
+} from "@trendmicro/react-sidenav";
 
+// Be sure to include styles at some point, probably during your bootstraping
+import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+import { SiMercedes } from "react-icons/si";
+import { FaCarSide, FaHome, FaUserFriends } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 Admin.propTypes = {};
 
 function Admin(props) {
   const history = useHistory();
   const match = useRouteMatch();
-  const isLogin = localStorage.getItem('admin');
+  const isLogin = localStorage.getItem("admin");
   console.log({ match });
   useEffect(() => {
     if (!isLogin) history.push(`${match.url}/login`);
   }, []);
+
+  function handleLogout() {
+    localStorage.removeItem("admin");
+    window.location.reload(false);
+  }
   return (
-    <BrowserRouter>
-      <h1>Đây là home page</h1>
-      <Router>
-        <Switch>
-            
-        </Switch>
-      </Router>
-    </BrowserRouter>
+    <Router>
+      <Route
+        render={({ location, history }) => (
+          <React.Fragment>
+            <SideNav
+              onSelect={(selected) => {
+                const to = `${match.url}/` + selected;
+                if (location.pathname !== to) {
+                  history.push(to);
+                }
+              }}
+            >
+              <SideNav.Toggle />
+              <SideNav.Nav defaultSelected="dashboard">
+                <NavItem eventKey="dashboard">
+                  <NavIcon>
+                    <FaHome style={{ fontSize: 25 }} />
+                  </NavIcon>
+                  <NavText>Home</NavText>
+                </NavItem>
+                <NavItem eventKey="listcars">
+                  <NavIcon>
+                    <SiMercedes style={{ fontSize: 25 }} />
+                  </NavIcon>
+                  <NavText>ListCars</NavText>
+                </NavItem>
+                <NavItem eventKey="typcars">
+                  <NavIcon>
+                    <FaCarSide style={{ fontSize: 25 }} />
+                  </NavIcon>
+                  <NavText>TypeCars</NavText>
+                </NavItem>
+                <NavItem eventKey="listusers">
+                  <NavIcon>
+                    <FaUserFriends style={{ fontSize: 25 }} />
+                  </NavIcon>
+                  <NavText>ListUsers</NavText>
+                </NavItem>
+                <NavItem onClick={handleLogout}>
+                  <NavIcon>
+                    <FiLogOut style={{ fontSize: 25 }} />
+                  </NavIcon>
+                  <NavText>Log in</NavText>
+                </NavItem>
+              </SideNav.Nav>
+            </SideNav>
+
+            <main className="content">
+              <Route
+                path={`${match.url}/dashboard`}
+                component={(props) => <DashBoardPage />}
+              />
+              <Route
+                path={`${match.url}/listusers`}
+                component={(props) => <ListUsersPage />}
+              />
+              <Route
+                path={`${match.url}/listcars`}
+                component={(props) => <ListCarsPage />}
+              />
+            </main>
+          </React.Fragment>
+        )}
+      />
+    </Router>
   );
 }
 

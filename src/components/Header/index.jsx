@@ -9,8 +9,10 @@ function Header(props) {
   const [modalShow, setModalShow] = useState(false);
   const isCheckSignIn = useSelector((state) => state.user.isCheckSignIn);
   const getUser = useSelector((state) => state.user.initialUser);
-  const user = localStorage.getItem("user") ? JSON.parse(getUser) : getUser;
-
+  console.log('1', getUser);
+  console.log('2', localStorage.getItem("user"));
+  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : getUser;
+  console.log(user);
   function handleClickLogout() {
     localStorage.removeItem("isCheck");
     window.location.reload(false);
@@ -40,7 +42,7 @@ function Header(props) {
           </Nav>
           {isCheckSignIn ? (
             <div className="d-flex align-items-center">
-              <div className="mr-2">{user[0].name}</div>
+              <div className="mr-2">{user.length > 0 ? user[0].name : ''}</div>
               <FaUserCircle className="mr-2" />
               <div className="navbar__user-logout" onClick={handleClickLogout}>
                 Log out

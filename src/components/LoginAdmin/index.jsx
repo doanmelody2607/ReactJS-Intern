@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SiMercedes } from "react-icons/si";
 import { useHistory } from "react-router-dom";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
@@ -22,12 +22,14 @@ function LoginAdmin(props) {
     setPassword(e.target.value);
   }
   function handleSubmit() {
-    if (username === "admin" && password === "123"){
-        const admin = true;
-        localStorage.setItem('admin', admin);
-        history.push("/admin");
+    if (username === "admin" && password === "123") {
+      const admin = true;
+      localStorage.setItem("admin", admin);
+      history.push("/admin");
     }
   }
+  if (localStorage.getItem("admin")) history.push("/admin");
+
   return (
     <div className="login__admin">
       <div className="d-flex">
