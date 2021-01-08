@@ -8,12 +8,14 @@ ListCars.propTypes = {};
 ListCars.defaultProps = {};
 function ListCars(props) {
   const dataCar = useSelector((state) => state.products);
-  console.log('1', typeof dataCar);
-  
+ 
+  function handleDataCar(values){
+    console.log("1" ,values);
+  }
   return (
     <div>
       <h1>LIST CARS</h1>
-      <Tables dataCar={dataCar} />
+      <Tables dataCar={dataCar} onReveicesDataCar={handleDataCar}/>
       
     </div>
   );
