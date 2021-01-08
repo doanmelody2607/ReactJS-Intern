@@ -7,9 +7,7 @@ import { useState } from "react";
 
 function tables(props) {
   const { dataCar,onReveicesDataCar } = props;
-  const [rows, setRows] = useState(() => {
-    return dataCar.length > 0 ? dataCar : null;
-  });
+  const rows = dataCar;
 
   const columns: ColDef[] = [
     { field: "name", headerName: "Name", width: 200 },
@@ -53,8 +51,8 @@ function tables(props) {
             dangerMode: true,
           }).then((willDelete) => {
             if (willDelete) {
-              
-              // onReveicesDataCar();
+
+              onReveicesDataCar(params.getValue("id"));
               swal("Done", {
                 icon: "success",
               })
@@ -74,7 +72,7 @@ function tables(props) {
 
   return (
     <div style={{ height: 400, width: "100%" }}>
-      {/* <DataGrid rows={rows} columns={columns} pageSize={5} /> */}
+      <DataGrid rows={rows} columns={columns} pageSize={5} />
     </div>
   );
 }
