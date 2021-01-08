@@ -6,16 +6,12 @@ const initialProducts = [];
 
 const products = createSlice({
   name: "products",
-  initialState: {
-    initialProducts,
-  },
-
+  initialState: initialProducts,
   reducers: {
-    
-    // loadPhotoList: (state, action) => {
-    //   state = action.payload;
-    //   return state;
-    // },
+    loadCarList: (state, action) => {
+      state = action.payload;
+      return state;
+    },
     // addPhoto: (state, action) => {
     //   state.push(action.payload);
     // },
@@ -34,6 +30,6 @@ const products = createSlice({
 });
 
 const { reducer, actions } = products;
-
-
+export const { loadCarList } = actions;
+// export const { loadPhotoList, addPhoto, removePhoto, updatePhoto } = actions;
 export default reducer;

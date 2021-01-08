@@ -1,16 +1,16 @@
 import React from "react";
 import ControlCarousel from "components/Carousel";
-import Products from "components/Products";
-import data from "../../appData";
+import Products from "features/Product/Main";
+
+import { useSelector } from "react-redux";
 
 const Homepage = (props) => {
-  const { products } = data;
-
+  const listcars = useSelector((state) => state.products);
   return (
     <div>
       <ControlCarousel />
       <br />
-      <Products products={products} />
+      <Products products={listcars} />
       <br />
     </div>
   );

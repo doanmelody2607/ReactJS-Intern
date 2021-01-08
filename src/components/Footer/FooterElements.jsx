@@ -87,12 +87,16 @@ export const SocialLogo = styled(Link)`
   color: #080808;
   justify-self: start;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: none !important;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
   margin-bottom: 16px;
   font-weight: bold;
+
+  &:hover {
+    color: #080808;
+  }
 `;
 
 export const WebsiteRights = styled.small`
@@ -110,4 +114,8 @@ export const SocialIcon = styled.div`
 export const SocialIconLink = styled.a`
   color: #080808;
   font-size: 24px;
+
+  &:hover {
+    color: #080808;
+  }
 `;

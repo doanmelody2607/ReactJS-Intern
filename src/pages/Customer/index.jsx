@@ -15,18 +15,19 @@ import {
 Customer.propTypes = {};
 
 function Customer(props) {
-    const match  = useRouteMatch();
-    console.log(match);
+  const match = useRouteMatch();
+  console.log(match);
+
   return (
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path={`${match.url}`} component={Homepage} />
-          <Route  path={`${match.url}signin`} component={SignInPage} />
-          <Route  path="`${ma}`signup" component={SignUpPage} />
-        </Switch>
-        <Footer />
-      </Router>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path={`${match.url}`} component={Homepage} />
+        <Route exact path={`${match.url}signin`} component={SignInPage} />
+        <Route exact path={`${match.url}signup`} component={SignUpPage} />
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 export default Customer;

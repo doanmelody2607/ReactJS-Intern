@@ -1,8 +1,7 @@
 import React from "react";
-import Product from "./product";
-import './Products.scss';
+import Product from "./Product";
 
-function Products(props) {
+function Main(props) {
   const { products, onAdd } = props;
 
   return (
@@ -16,4 +15,4 @@ function Products(props) {
   );
 }
 
-export default Products;
+export default Main;

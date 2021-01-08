@@ -33,10 +33,7 @@ function Admin(props) {
   const match = useRouteMatch();
   const isLogin = localStorage.getItem("admin");
   console.log({ match });
-  useEffect(() => {
-    if (!isLogin) history.push(`${match.url}/login`);
-  }, []);
-
+  if (!isLogin) history.push(`${match.url}/login`);
   function handleLogout() {
     localStorage.removeItem("admin");
     window.location.reload(false);
