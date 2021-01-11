@@ -32,4 +32,5 @@ const users = createSlice({
 const { reducer, actions } = users;
 
 export const { checkSignIn, User, loadUserList, removeUser } = actions;
+
 export default reducer;

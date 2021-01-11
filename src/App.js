@@ -3,10 +3,14 @@ import CustomerPage from "pages/Customer";
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
+import "aos/dist/aos.css";
 import AdminPage from "./pages/Admin";
 import productsApi from "api/productsApi";
 import { useDispatch } from "react-redux";
 import { loadCarList } from "features/Product/productSlice";
+import usersApi from "api/usersApi";
+import { loadUserList } from "features/SignIn/userSlice";
+
 
 function App() {
   const dispatch = useDispatch();

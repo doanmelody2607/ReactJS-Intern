@@ -35,7 +35,6 @@ function Admin(props) {
   const match = useRouteMatch();
   const isLogin = localStorage.getItem("admin");
   if (!isLogin) history.push(`${match.url}/login`);
-  
   function handleLogout() {
     localStorage.removeItem("admin");
     window.location.reload(false);
@@ -104,12 +103,12 @@ function Admin(props) {
                 path={`${match.url}/listcars`}
                 component={(props) => <ListCarsPage />}
               />
-               <Route
+              <Route
                 exact
-                path={`${match.url}/listcars/create`}
+                path={`${match.url}/create`}
                 component={(props) => <CreatePage />}
               />
-                <Route
+              <Route
                 exact
                 path={`${match.url}/listcars/:carId`}
                 component={(props) => <EditPage />}

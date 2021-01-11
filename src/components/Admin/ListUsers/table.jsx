@@ -10,10 +10,9 @@ function tables(props) {
   const rows = dataCar;
 
   const columns: ColDef[] = [
-    { field: "name", headerName: "Name", width: 200 },
-    { field: "username", headerName: "Username", width: 200 },
-    { field: "password", headerName: "Password", width: 200 },
-    
+    { field: "name", headerName: "Name", width: 300 },
+    { field: "username", headerName: "Username", width: 300 },
+    { field: "password", headerName: "Password", width: 300 },
     {
       field: "id",
       headerName: "Action",
@@ -26,7 +25,7 @@ function tables(props) {
         };
         const handleDelete = () => {
           swal({
-            title: "Are you sure delete this user?",
+            title: "Are you sure delete this car?",
             icon: "warning",
             dangerMode: true,
             buttons: true,
@@ -41,7 +40,7 @@ function tables(props) {
           });
         };
         return (
-          <span className="icon-action">
+          <span className="icon-action ">
             {" "}
             <FaEdit onClick={handleEdit} />{" "}
             <AiFillDelete onClick={handleDelete} />{" "}

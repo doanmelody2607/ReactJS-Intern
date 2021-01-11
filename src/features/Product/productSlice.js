@@ -18,6 +18,7 @@ const products = createSlice({
     removeCar: (state, action) => {
       const removeCarId = action.payload;
       return state.filter((car) => car.id != removeCarId);
+
     },
     // updatePhoto: (state, action) => {
     //   const newPhoto = action.payload;
@@ -30,6 +31,8 @@ const products = createSlice({
 });
 
 const { reducer, actions } = products;
+
 export const { loadCarList, removeCar, searchCar } = actions;
+
 // export const { loadPhotoList, addPhoto, removePhoto, updatePhoto } = actions;
 export default reducer;

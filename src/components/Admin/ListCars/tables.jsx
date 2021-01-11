@@ -11,42 +11,31 @@ function tables(props) {
 
   const columns: ColDef[] = [
     { field: "name", headerName: "Name", width: 200 },
-    { field: "description", headerName: "Description", width: 130 },
+    { field: "description", headerName: "Description", width: 200 },
     {
       field: "price",
       headerName: "Price",
-      type: "number",
-      width: 130,
+      width: 200,
     },
     {
       field: "origin",
       headerName: "Origin",
-      width: 130,
+      width: 150,
     },
     {
       field: "thumbail",
       headerName: "Thumbail",
-      width: 120,
+      width: 130,
 
       renderCell: (params) => {
-        return (
-          <img
-            className="w-100"
-            src="https://i.xeoto.com.vn/auto/w250/mercedes/cla-250/mercedes-cla-250-2020.png"
-          />
-        );
+        return <img className="w-100" src={params.getValue("thumbail")} />;
       },
-    },
-    {
-      field: "type",
-      headerName: "Type",
-      width: 120,
     },
     {
       field: "id",
       headerName: "Action",
       sortable: false,
-      width: 100,
+      width: 130,
       disableClickEventBubbling: true,
       renderCell: (params) => {
         const handleEdit = () => {
@@ -69,7 +58,7 @@ function tables(props) {
           });
         };
         return (
-          <span className="icon-action">
+          <span className="icon-action ">
             {" "}
             <FaEdit onClick={handleEdit} />{" "}
             <AiFillDelete onClick={handleDelete} />{" "}

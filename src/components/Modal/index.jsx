@@ -13,17 +13,20 @@ const AboutUs = (props) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            <Image className="merslogo" src="https://cdn.iconscout.com/icon/free/png-256/mercedes-4-202841.png" />
+            <Image
+              className="merslogo"
+              src="https://cdn.iconscout.com/icon/free/png-256/mercedes-4-202841.png"
+            />
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <h4>General introduction</h4>
           <p>
-            Mercedes-Benz is one of the famous manufacturers of cars , buses and
-            trucks in the world . The company is considered to be the oldest car
+            Mercedes-Benz is one of the famous manufacturers of cars, buses and
+            trucks in the world. The company is considered to be the oldest car
             manufacturer in existence today. Initially, the company was owned by
-            Daimler-Benz . Currently, the company is a member of the parent
-            company , Daimler AG (formerly known as DaimlerChrysler AG ).
+            Daimler-Benz. Currently, the company is a member of the parent
+            company, Daimler AG (formerly known as DaimlerChrysler AG ).
             Mercedes-Benz is also one of the pioneers in introducing a variety
             of safety technologies and initiatives that have subsequently become
             popular around the world .
