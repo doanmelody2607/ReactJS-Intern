@@ -5,12 +5,13 @@ import Products from "features/Product/Main";
 import { useSelector } from "react-redux";
 
 const Homepage = (props) => {
-  const listcars = useSelector((state) => state.products);
+  // const listcars = useSelector((state) => state.products);
+
   return (
     <div>
       <ControlCarousel />
       <br />
-      <Products products={listcars} />
+      <Products />
       <br />
     </div>
   );

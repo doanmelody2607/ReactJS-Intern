@@ -15,10 +15,10 @@ const products = createSlice({
     // addPhoto: (state, action) => {
     //   state.push(action.payload);
     // },
-    // removePhoto: (state, action) => {
-    //   const removePhotoId = action.payload;
-    //   return state.filter((photo) => photo.id != removePhotoId);
-    // },
+    removeCar: (state, action) => {
+      const removeCarId = action.payload;
+      return state.filter((car) => car.id != removeCarId);
+    }
     // updatePhoto: (state, action) => {
     //   const newPhoto = action.payload;
     //   const photoIndex = state.findIndex((photo) => photo.id === newPhoto.id);
@@ -30,6 +30,6 @@ const products = createSlice({
 });
 
 const { reducer, actions } = products;
-export const { loadCarList } = actions;
+export const { loadCarList, removeCar, searchCar } = actions;
 // export const { loadPhotoList, addPhoto, removePhoto, updatePhoto } = actions;
 export default reducer;

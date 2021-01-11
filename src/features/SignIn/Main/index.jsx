@@ -76,10 +76,10 @@ function Main(props) {
       </FormGroup>
       <FormGroup row>
         <Col sm={{ size: 10, offset: 4 }}>
-          <Button type="submit" onClick={handleClickLogin}>
+          <Button className="btn btn-danger" type="submit" onClick={handleClickLogin}>
             Login
           </Button>
-          <Button href="/signup" className="bg-primary ml-2">
+          <Button href="/signup" className="ml-2">
             Register
           </Button>
         </Col>
