@@ -26,6 +26,8 @@ import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 import { SiMercedes } from "react-icons/si";
 import { FaCarSide, FaHome, FaUserFriends } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import CreatePage from "components/Admin/ListCars/Create";
+import EditPage from "components/Admin/ListCars/Edit";
 Admin.propTypes = {};
 
 function Admin(props) {
@@ -33,7 +35,6 @@ function Admin(props) {
   const match = useRouteMatch();
   const isLogin = localStorage.getItem("admin");
   if (!isLogin) history.push(`${match.url}/login`);
-  
   function handleLogout() {
     localStorage.removeItem("admin");
     window.location.reload(false);
@@ -88,16 +89,29 @@ function Admin(props) {
 
             <main className="content">
               <Route
+                exact
                 path={`${match.url}/dashboard`}
                 component={(props) => <DashBoardPage />}
               />
               <Route
+                exact
                 path={`${match.url}/listusers`}
                 component={(props) => <ListUsersPage />}
               />
               <Route
+                exact
                 path={`${match.url}/listcars`}
                 component={(props) => <ListCarsPage />}
+              />
+              <Route
+                exact
+                path={`${match.url}/listcars/create`}
+                component={(props) => <CreatePage />}
+              />
+              <Route
+                exact
+                path={`${match.url}/listcars/:carId`}
+                component={(props) => <EditPage />}
               />
             </main>
           </React.Fragment>

@@ -1,49 +1,41 @@
-import usersApi from "api/usersApi";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
-import { checkSignIn, User } from "../userSlice";
+import PropTypes from "prop-types";
 import "./SignIn.scss";
+import {
+  Col,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+} from "reactstrap";
+import { useRouteMatch } from "react-router-dom";
 
-Main.propTypes = {};
+SignIn.propTypes = {};
 
-Main.defaultProps = {};
+SignIn.defaultProps = {};
 
-function Main(props) {
-  const dispatch = useDispatch();
-  const history = useHistory();
+function SignIn(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handOnsubmit = (e) => {
     e.preventDefault();
   };
+
   function handleUserName(e) {
     setUsername(e.target.value);
   }
   function handlePassword(e) {
     setPassword(e.target.value);
   }
-
-  const handleClickLogin = async (e) => {
-    const params = {
-      username: username,
-      password: password,
-    };
-
-    const reponse = await usersApi.get(params);
-    const action = checkSignIn(true);
-    if (reponse.length != 0) {
-      dispatch(action);
-      
-      const action1 = User(JSON.stringify(reponse));
-      localStorage.setItem("isCheck", true);
-      localStorage.setItem("user", JSON.stringify(reponse));
-      dispatch(action1);
-      history.push("/");
-    } else console.log("khong");
+  const handleClickLogin = (e) => {
+    if (username === "huy" && password === "123") console.log("login success");
+    else console.log("login faild");
   };
 
+  const matchurl = useRouteMatch();
+  console.log({ matchurl });
   return (
     <Form onSubmit={handOnsubmit} className="form__signin">
       <FormGroup row>
@@ -76,10 +68,10 @@ function Main(props) {
       </FormGroup>
       <FormGroup row>
         <Col sm={{ size: 10, offset: 4 }}>
-          <Button className="btn btn-danger" type="submit" onClick={handleClickLogin}>
+          <Button type="submit" onClick={handleClickLogin}>
             Login
           </Button>
-          <Button href="/signup" className="ml-2">
+          <Button href="/signup" className="bg-primary ml-2">
             Register
           </Button>
         </Col>
@@ -87,4 +79,4 @@ function Main(props) {
     </Form>
   );
 }
-export default Main;
+export default SignIn;

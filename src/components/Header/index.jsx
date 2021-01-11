@@ -5,6 +5,10 @@ import { SiMercedes } from "react-icons/si";
 import { useSelector } from "react-redux";
 import AboutUs from "../Modal";
 import "./Header.scss";
+
+import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+
 function Header(props) {
   const [modalShow, setModalShow] = useState(false);
   const isCheckSignIn = useSelector((state) => state.user.isCheckSignIn);
@@ -20,7 +24,7 @@ function Header(props) {
   return (
     <>
       <Navbar className="navbar " variant="light" expand="lg" sticky="top">
-        <Navbar.Brand href="/">
+        <Navbar.Brand className="text-danger" href="/">
           <SiMercedes /> Mercedes
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -43,16 +47,16 @@ function Header(props) {
           {isCheckSignIn ? (
             <div className="d-flex align-items-center">
               <div className="mr-2">{user.length > 0 ? user[0].name : ''}</div>
-              <FaUserCircle className="mr-2" />
-              <div className="navbar__user-logout" onClick={handleClickLogout}>
+              <FaUserCircle style={{fontSize: 25}} />
+              <Button className="btn btn-danger navbar__user-logout" onClick={handleClickLogout}>
                 Log out
-              </div>
+              </Button>
             </div>
           ) : (
             <Button
-              className="nav__button bg-primary text-white"
+              className="nav__button  bg-danger text-white"
               href="/signin"
-              variant="outline-primary"
+              variant="outline-danger"
               inline-block
             >
               Sign In
@@ -70,3 +74,4 @@ function Header(props) {
 }
 
 export default Header;
+

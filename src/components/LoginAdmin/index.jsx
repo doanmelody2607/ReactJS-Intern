@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SiMercedes } from "react-icons/si";
+import { FaUserTie, FaLockOpen } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
 import "./LoginAdmin.scss";
@@ -32,40 +33,44 @@ function LoginAdmin(props) {
 
   return (
     <div className="login__admin">
-      <div className="d-flex">
-        {" "}
-        <SiMercedes className="w-100 login__admin-logo" /> <h1>MERCEDES</h1>
+      <div className="d-flex text-danger">
+        <SiMercedes className="w-50 login__admin-logo" />
+        <h1 className="mr-4">MERCEDES</h1>
       </div>
 
       <Form onSubmit={handOnsubmit} className="form__admin">
         <FormGroup>
-          <Label for="username">User name: </Label>
+          <Label for="username">
+            <FaUserTie /> <b>Username</b>{" "}
+          </Label>
           <Input
             type="text"
             name="username"
             id="username"
-            placeholder="username"
+            placeholder="@Enter your username"
             onChange={handleUserName}
           />
         </FormGroup>
         <FormGroup>
-          <Label for="password">Password: </Label>
+          <Label for="password">
+            <FaLockOpen /> <b>Password</b>
+          </Label>
           <Input
             type="password"
             name="password"
             id="password"
-            placeholder="password"
+            placeholder="@Enter your password"
             onChange={handlePassword}
           />
         </FormGroup>
 
-        <Button className="bg-primary" onClick={handleSubmit}>
+        <Button className="btn btn-danger" onClick={handleSubmit}>
           Login
         </Button>
 
-        <a href="/" className="ml-3">
+        <Button href="/" className="ml-3">
           Go back home
-        </a>
+        </Button>
       </Form>
     </div>
   );

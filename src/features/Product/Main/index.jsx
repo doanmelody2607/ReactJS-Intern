@@ -1,16 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import Product from "./Product";
+import { useSelector } from "react-redux";
 
-index.propTypes = {
-    
-};
+function Main(props) {
+  const products = useSelector((state) => state.products);
 
-function index(props) {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <div className="container">
+      <div className="row">
+        {products.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default index;
+export default Main;

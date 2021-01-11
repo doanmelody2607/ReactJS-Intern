@@ -72,11 +72,11 @@ const Footer = () => {
 
         <SocialMedia>
           <SocialMediaWrap>
-            <SocialLogo to="/" onClick={toggleHome}>
-              <SiMercedes className="mr-2"/> Mercedes
+            <SocialLogo className="text-danger" to="/" onClick={toggleHome}>
+              <SiMercedes className="mr-2" /> Mercedes
             </SocialLogo>
-            <WebsiteRights>
-              mIO © {new Date().getFullYear()}
+            <WebsiteRights className="text-danger">
+              <SiMercedes /> Mercedes © {new Date().getFullYear()}
               <span> All rights reserved. </span>
             </WebsiteRights>
             <SocialIcon>
