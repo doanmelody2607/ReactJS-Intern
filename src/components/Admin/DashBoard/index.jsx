@@ -1,6 +1,6 @@
 import React from "react";
 import Chart from "./Chart";
-import admin from "../../../images/admin.svg"
+import admin from "../../../images/admin.svg";
 import "./DashBoard.scss";
 
 DashBoard.propTypes = {};
@@ -23,7 +23,7 @@ function DashBoard(props) {
 
         {/* <!-- MAIN CARDS STARTS HERE --> */}
         <div className="main__cards">
-          <div className="card">
+          <div className="dashboard-card">
             <i
               className="fa fa-user-o fa-2x"
               aria-hidden="true"
@@ -34,7 +34,7 @@ function DashBoard(props) {
             </div>
           </div>
 
-          <div className="card">
+          <div className="dashboard-card">
             <i className="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
             <div className="card_inner">
               <p className="text-primary-p">Times of Watching</p>
@@ -42,7 +42,7 @@ function DashBoard(props) {
             </div>
           </div>
 
-          <div className="card">
+          <div className="dashboard-card">
             <i
               className="fa fa-video-camera fa-2x text-yellow"
               aria-hidden="true"
@@ -53,7 +53,7 @@ function DashBoard(props) {
             </div>
           </div>
 
-          <div className="card">
+          <div className="dashboard-card">
             <i
               className="fa fa-thumbs-up fa-2x text-green"
               aria-hidden="true"

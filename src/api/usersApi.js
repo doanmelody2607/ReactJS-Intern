@@ -1,10 +1,26 @@
 import axiosClient from "./axiosClient";
 
 const usersApi = {
-  get: (params) => {
-      console.log("paramsApi: ", params);
+  getAll: (params) => {
     const url = "/user";
-    return axiosClient.get(url,{params});
+    console.log(params);
+    return axiosClient.get(url, { params });
+  },
+  get: (id) => {
+    const url = `/user/${id}`;
+    return axiosClient.get(url);
+  },
+  post: (values) => {
+    const url = "/user";
+    return axiosClient.post(url, values);
+  },
+  delete: (id) => {
+    const url = `/user/${id}`;
+    return axiosClient.delete(url);
+  },
+  put: (id, values) => {
+    const url = `user/${id}`;
+    return axiosClient.put(url, values);
   },
 };
 export default usersApi;

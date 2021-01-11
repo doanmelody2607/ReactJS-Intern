@@ -31,7 +31,7 @@ function Main(props) {
       password: password,
     };
 
-    const reponse = await usersApi.get(params);
+    const reponse = await usersApi.getAll(params);
     const action = checkSignIn(true);
     if (reponse.length != 0) {
       dispatch(action);

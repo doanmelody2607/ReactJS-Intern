@@ -48,7 +48,7 @@ function Header(props) {
             <div className="d-flex align-items-center">
               <div className="mr-2">{user.length > 0 ? user[0].name : ''}</div>
               <FaUserCircle style={{fontSize: 25}} />
-              <Button className="btn btn-danger navbar__user-logout" onClick={handleClickLogout}>
+              <Button className="btn btn-danger navbar__user-logout ml-3" onClick={handleClickLogout}>
                 Log out
               </Button>
             </div>

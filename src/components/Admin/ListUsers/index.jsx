@@ -1,43 +1,88 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Table from "./table";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  loadCarList,
+  removeCar,
+  searchCar,
+} from "features/Product/productSlice";
+import productsApi from "api/productsApi";
+import usersApi from "api/usersApi";
+import { removeUser } from "features/SignIn/userSlice";
 
-import { makeStyles } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControl from "@material-ui/core/FormControl";
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
 
-import { FaUserCircle } from "react-icons/fa";
+ListCars.propTypes = {};
 
-import PropTypes from "prop-types";
+ListCars.defaultProps = {};
+function ListCars(props) {
+  const dataCar = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const match = useRouteMatch();
 
-ListUsers.propTypes = {};
+  const [dataxx, setDataxx] = useState(() => {
+    return [];
+  });
+  console.log("122222", dataxx);
+  useEffect(() => {
+    console.log("aaaaaaaaa", dataCar);
+    setDataxx(dataCar);
+  }, [dataCar]);
 
-function ListUsers(props) {
+  function handleDeleteCar(values) {
+    const action = removeCar(values);
+    dispatch(action);
+
+    productsApi.delete(values);
+  }
+
+  function handleEditCar(values) {
+    history.push(`${match.url}/${values}`);
+  }
+
+  function handleSearch(e) {
+    const find = e.target.value;
+    const searchResult = dataCar.filter(
+      (car) =>
+        car.name.toLowerCase().includes(find.toLowerCase(), -2) ||
+        car.price.toLowerCase().includes(find.toLowerCase(), -2)
+    );
+    setDataxx(searchResult);
+  }
+
+  function handleCreateCar() {
+    history.push(`${match.url}/create`);
+  }
+
   return (
     <div>
-      <FormControl>
-        <Grid container spacing={1} alignItems="flex-end">
-          <Grid item>
-            <FaUserCircle />
-          </Grid>
-          <Grid item>
-            <TextField id="input-with-icon-grid" label="ID of Car" fullWidth />
-          </Grid>
-        </Grid>
-        <br />
-        <Grid container spacing={1} alignItems="flex-end">
-          <Grid item>
-            <FaUserCircle />
-          </Grid>
-          <Grid item>
-            <TextField id="input-with-icon-grid" label="Name of Car" fullWidth />
-          </Grid>
-        </Grid>
-      </FormControl>
+      <h1>LIST CARS</h1>
+      <TextField
+        id="filled-full-width"
+        style={{ margin: 0 }}
+        placeholder="Seacrh"
+        fullWidth
+        margin="normal"
+        InputLabelProps={{
+          shrink: true,
+        }}
+        variant="filled"
+        onKeyUp={handleSearch}
+      />
+      <Table
+        dataCar={dataxx}
+        onReceiveDeleteCar={handleDeleteCar}
+        onReceiveEditCar={handleEditCar}
+      />
+      <br />
+      <Button onClick={handleCreateCar} variant="contained" color="secondary">
+        Add Product
+      </Button>
     </div>
   );
 }
 
-export default ListUsers;
+export default ListCars;

@@ -18,10 +18,18 @@ const users = createSlice({
     User: (state, action) => {
       state.initialUser = action.payload;
     },
+    loadUserList: (state, action) => {
+      state = action.payload;
+      return state;
+    },
+    removeUser: (state, action) => {
+      const removeUserId = action.payload;
+      return state.filter((user) => user.id != removeUserId);
+    }
   },
 });
 
 const { reducer, actions } = users;
 
-export const { checkSignIn, User } = actions;
+export const { checkSignIn, User, loadUserList, removeUser } = actions;
 export default reducer;
