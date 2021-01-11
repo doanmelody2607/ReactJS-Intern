@@ -4,11 +4,14 @@ import { Form, FormGroup, Input, Label } from "reactstrap";
 import "./Create.scss";
 import Select from "react-select";
 import Button from "@material-ui/core/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import productsApi from "api/productsApi";
+
+import { addCar } from "features/Product/productSlice";
 Create.propTypes = {};
 
 function Create(props) {
+  const dispatch = useDispatch();
   //get length listcars
   const lengthListCars = useSelector((state) => state.products.length) + 1;
 
@@ -82,13 +85,17 @@ function Create(props) {
 
   //click button submit
   function handleSubmitForm() {
+    formData.id = lengthListCars;
     formData.name = name;
     formData.description = description;
     formData.price = price;
     formData.origin = origin;
     formData.thumbail = img;
-
+    console.log("addform:", formData);
     return new Promise((resolve) => {
+      const action = addCar(formData);
+      dispatch(action);
+
       productsApi.post(formData);
       resolve(true);
     });

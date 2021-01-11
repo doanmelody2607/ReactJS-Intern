@@ -18,16 +18,14 @@ ListCars.propTypes = {};
 ListCars.defaultProps = {};
 function ListCars(props) {
   const dataCar = useSelector((state) => state.products);
+  console.log("data car", dataCar);
   const dispatch = useDispatch();
   const history = useHistory();
   const match = useRouteMatch();
-
   const [dataxx, setDataxx] = useState(() => {
     return [];
   });
-  console.log("122222", dataxx);
   useEffect(() => {
-    console.log("aaaaaaaaa", dataCar);
     setDataxx(dataCar);
   }, [dataCar]);
 
