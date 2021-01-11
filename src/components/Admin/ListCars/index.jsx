@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import Tables from "./tables";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -23,14 +22,14 @@ function ListCars(props) {
   const history = useHistory();
   const match = useRouteMatch();
 
-  const [dataxx, setDataxx] = useState( () => {
+  const [dataxx, setDataxx] = useState(() => {
     return [];
   });
   console.log("122222", dataxx);
   useEffect(() => {
     console.log("aaaaaaaaa", dataCar);
     setDataxx(dataCar);
-  }, [dataCar])
+  }, [dataCar]);
 
   function handleDeleteCar(values) {
     const action = removeCar(values);
@@ -38,15 +37,17 @@ function ListCars(props) {
 
     productsApi.delete(values);
   }
+
   function handleEditCar(values) {
     history.push(`${match.url}/${values}`);
   }
+
   function handleSearch(e) {
     const find = e.target.value;
-    const searchResult = dataCar.filter((car) => car.name.toLowerCase().includes(find.toLowerCase(), -2)
-    || car.price.toLowerCase().includes(find.toLowerCase(), -2)
-
-    
+    const searchResult = dataCar.filter(
+      (car) =>
+        car.name.toLowerCase().includes(find.toLowerCase(), -2) ||
+        car.price.toLowerCase().includes(find.toLowerCase(), -2)
     );
     setDataxx(searchResult);
   }
@@ -54,6 +55,7 @@ function ListCars(props) {
   function handleCreateCar() {
     history.push(`${match.url}/create`);
   }
+
   return (
     <div>
       <h1>LIST CARS</h1>
@@ -75,7 +77,6 @@ function ListCars(props) {
         onReceiveEditCar={handleEditCar}
       />
       <br />
-
       <Button onClick={handleCreateCar} variant="contained" color="secondary">
         Add Product
       </Button>
