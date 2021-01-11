@@ -53,7 +53,7 @@ function ListCars(props) {
   }
 
   function handleCreateCar() {
-    history.push(`${match.url}/create`);
+    history.push(`/admin/create`);
   }
 
   return (

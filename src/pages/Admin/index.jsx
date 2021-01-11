@@ -105,7 +105,7 @@ function Admin(props) {
               />
               <Route
                 exact
-                path={`${match.url}/listcars/create`}
+                path={`${match.url}/create`}
                 component={(props) => <CreatePage />}
               />
               <Route
