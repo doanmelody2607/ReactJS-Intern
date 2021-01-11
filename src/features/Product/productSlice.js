@@ -12,27 +12,31 @@ const products = createSlice({
       state = action.payload;
       return state;
     },
-    // addPhoto: (state, action) => {
-    //   state.push(action.payload);
-    // },
+    addCar: (state, action) => {
+      state.push(action.payload);
+    },
     removeCar: (state, action) => {
       const removeCarId = action.payload;
       return state.filter((car) => car.id != removeCarId);
-
     },
-    // updatePhoto: (state, action) => {
-    //   const newPhoto = action.payload;
-    //   const photoIndex = state.findIndex((photo) => photo.id === newPhoto.id);
-    //   if (photoIndex >= 0) {
-    //     state[photoIndex] = newPhoto;
-    //   }
-    // },
+    updateCars: (state, action) => {
+      const newCar = action.payload;
+      
+      const carIndex = state.findIndex((car) =>{
+        console.log("new Cả1",newCar.id )
+        console.log("new Cả",car.id )
+        return  car.id === +newCar.id;
+      });
+      console.log("cvcss",carIndex);
+      if (carIndex >= 0) {
+        state[carIndex] = newCar;
+        console.log("cvcss");
+      }
+    },
   },
 });
 
 const { reducer, actions } = products;
-
-export const { loadCarList, removeCar, searchCar } = actions;
-
+export const { loadCarList, removeCar,updateCars, addCar } = actions;
 // export const { loadPhotoList, addPhoto, removePhoto, updatePhoto } = actions;
 export default reducer;

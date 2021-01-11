@@ -102,17 +102,10 @@ function Create(props) {
     <div className="form__create">
       <Form className="row" onSubmit={handleOnsubmit}>
         <div className="form__create-img col-sm-12 col-md-6 col-6">
-          <div className="form__create-img-block">
-            <img className="" src={img} />
-          </div>
+          <img className="" src={img} />
           <FormGroup className="mt-5">
-              <Input
-                type="file"
-                name="imgCar"
-                id="imgCar"
-                onChange={handleImg}
-              />
-            </FormGroup>
+            <Input type="file" name="imgCar" id="imgCar" onChange={handleImg} />
+          </FormGroup>
         </div>
         <div className=" col-sm-12 col-md-6 col-6">
           <FormGroup>

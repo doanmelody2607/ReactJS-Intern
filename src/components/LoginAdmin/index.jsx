@@ -26,7 +26,7 @@ function LoginAdmin(props) {
     if (username === "admin" && password === "123") {
       const admin = true;
       localStorage.setItem("admin", admin);
-      history.push("/admin");
+      history.push("/admin/dashboard");
     }
   }
   if (localStorage.getItem("admin")) history.push("/admin");
