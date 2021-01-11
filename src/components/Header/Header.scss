@@ -1,8 +1,8 @@
 .navbar {
   text-align: center;
   background-color: #f5f4f4;
-  &__user-logout:hover {
-    cursor: pointer;
-    text-decoration: underline;
+
+  &__user-login {
+    margin-left: 200px;
   }
 }

@@ -35,7 +35,7 @@ function Admin(props) {
   const match = useRouteMatch();
   const isLogin = localStorage.getItem("admin");
   if (!isLogin) history.push(`${match.url}/login`);
-
+  
   function handleLogout() {
     localStorage.removeItem("admin");
     window.location.reload(false);

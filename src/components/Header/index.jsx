@@ -45,7 +45,7 @@ function Header(props) {
             </Nav.Link>
           </Nav>
           {isCheckSignIn ? (
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center navbar__user-login">
               <div className="mr-2">{user.length > 0 ? user[0].name : ''}</div>
               <FaUserCircle style={{fontSize: 25}} />
               <Button className="btn btn-danger navbar__user-logout ml-3" onClick={handleClickLogout}>
