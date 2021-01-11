@@ -4,13 +4,17 @@ import { Form, FormGroup, Input, Label } from "reactstrap";
 import "./Create.scss";
 import Select from "react-select";
 import Button from "@material-ui/core/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import productsApi from "api/productsApi";
 import swal from "sweetalert";
+import { addCar } from "features/Product/productSlice";
+import { useHistory } from "react-router-dom";
 
 Create.propTypes = {};
 
 function Create(props) {
+  const dispatch = useDispatch();
+  const history = useHistory();
   //get length listcars
   const lengthListCars = useSelector((state) => state.products.length) + 1;
 
@@ -87,6 +91,7 @@ function Create(props) {
       icon: "success",
       dangerMode: true,
     });
+    formData.id = lengthListCars;
     formData.name = name;
     formData.description = description;
     formData.price = price;
@@ -95,17 +100,31 @@ function Create(props) {
 
     return new Promise((resolve) => {
       productsApi.post(formData);
+
+      const action = addCar(formData);
+      dispatch(action);
       resolve(true);
     });
+  }
+
+  function handleBackToListCar(){
+    history.push("/admin/listcars");
   }
   return (
     <div className="form__create">
       <Form className="row" onSubmit={handleOnsubmit}>
         <div className="form__create-img col-sm-12 col-md-6 col-6">
-          <img className="" src={img} />
-          <FormGroup className="mt-5">
-            <Input type="file" name="imgCar" id="imgCar" onChange={handleImg} />
-          </FormGroup>
+          <div className="form__create-img-block">
+            <img className="" src={img} />
+            <FormGroup className="mt-5">
+              <Input
+                type="file"
+                name="imgCar"
+                id="imgCar"
+                onChange={handleImg}
+              />
+            </FormGroup>
+          </div>
         </div>
         <div className=" col-sm-12 col-md-6 col-6">
           <FormGroup>
@@ -155,6 +174,15 @@ function Create(props) {
             onClick={handleSubmitForm}
           >
             Add Product
+          </Button>
+
+          <Button
+            className="ml-3"
+            variant="contained"
+            onClick={handleBackToListCar}
+
+          >
+            Back To ListCars
           </Button>
         </div>
       </Form>

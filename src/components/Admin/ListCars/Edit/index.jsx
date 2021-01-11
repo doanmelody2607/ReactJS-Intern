@@ -7,6 +7,8 @@ import Select from "react-select";
 import { Form, FormGroup, Input, Label } from "reactstrap";
 import { updateCars } from "features/Product/productSlice";
 import "./Edit.scss";
+import swal from "sweetalert";
+
 Create.propTypes = {};
 
 function Create(props) {
@@ -88,29 +90,60 @@ function Create(props) {
 
   //click button submit
   function handleSubmitForm() {
-    formData.id = +carId;
-    formData.name = name;
-    formData.description = description;
-    formData.price = price;
-    formData.origin = origin;
-    formData.thumbail = img;
-    console.log("form data", formData);
-    return new Promise((resolve) => {
-      productsApi.put(carId, formData);
+    // swal({
+    //   title: "You have successfully added!",
+    //   icon: "success",
+    //   dangerMode: true,
+    // });
 
-      const action = updateCars(formData);
-      dispatch(action);
-      resolve(true);
+    swal({
+      title: "Are you sure update this car?",
+      icon: "warning",
+      dangerMode: true,
+      buttons: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        formData.id = +carId;
+        formData.name = name;
+        formData.description = description;
+        formData.price = price;
+        formData.origin = origin;
+        formData.thumbail = img;
+        console.log("form data", formData);
+        swal("Done", {
+          icon: "success",
+          dangerMode: true,
+        });
+        return new Promise((resolve) => {
+          productsApi.put(carId, formData);
+
+          const action = updateCars(formData);
+          dispatch(action);
+          resolve(true);
+        });
+      }
     });
   }
+
+  function handleBackToListCar() {
+    history.push("/admin/listcars");
+  }
+
   return (
     <div className="form__edit">
       <Form className="row" onSubmit={handleOnsubmit}>
         <div className="form__edit-img col-sm-12 col-md-6 col-6">
-          <img className="" src={img} />
-          <FormGroup className="mt-5">
-            <Input type="file" name="imgCar" id="imgCar" onChange={handleImg} />
-          </FormGroup>
+          <div className="form__eidt-img-block">
+            <img className="" src={img} />
+            <FormGroup className="mt-5">
+              <Input
+                type="file"
+                name="imgCar"
+                id="imgCar"
+                onChange={handleImg}
+              />
+            </FormGroup>
+          </div>
         </div>
         <div className=" col-sm-12 col-md-6 col-6">
           <FormGroup>
@@ -163,6 +196,14 @@ function Create(props) {
             onClick={handleSubmitForm}
           >
             Update Product
+          </Button>
+
+          <Button
+            className="ml-3"
+            variant="contained"
+            onClick={handleBackToListCar}
+          >
+            Back To ListCars
           </Button>
         </div>
       </Form>

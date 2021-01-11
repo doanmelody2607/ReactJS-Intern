@@ -11,11 +11,7 @@ function tables(props) {
 
   const columns: ColDef[] = [
     { field: "name", headerName: "Name", width: 200 },
-<<<<<<< HEAD
     { field: "description", headerName: "Description", width: 200 },
-=======
-    { field: "description", headerName: "Description", width: 130 },
->>>>>>> 0b23bea1f2b7fe452c6ca7b76c04fc0cb8deb30f
     {
       field: "price",
       headerName: "Price",
@@ -29,11 +25,7 @@ function tables(props) {
     {
       field: "thumbail",
       headerName: "Thumbail",
-<<<<<<< HEAD
       width: 130,
-=======
-      width: 120,
->>>>>>> 0b23bea1f2b7fe452c6ca7b76c04fc0cb8deb30f
 
       renderCell: (params) => {
         return <img className="w-100" src={params.getValue("thumbail")} />;
@@ -66,11 +58,7 @@ function tables(props) {
           });
         };
         return (
-<<<<<<< HEAD
           <span className="icon-action ">
-=======
-          <span className="icon-action">
->>>>>>> 0b23bea1f2b7fe452c6ca7b76c04fc0cb8deb30f
             {" "}
             <FaEdit onClick={handleEdit} />{" "}
             <AiFillDelete onClick={handleDelete} />{" "}

@@ -29,7 +29,7 @@ function LoginAdmin(props) {
       history.push("/admin/dashboard");
     }
   }
-  if (localStorage.getItem("admin")) history.push("/admin");
+  if (localStorage.getItem("admin")) history.push("/admin/dashboard");
 
   return (
     <div className="login__admin">
