@@ -1,0 +1,19 @@
+.login__admin {
+  width: 320px;
+  padding: 8% 0 0 0;
+  margin: auto;
+  
+  &-logo{
+    height: 50px;
+  }
+  .form__admin{
+      margin-top: 20px;
+      margin-left: 0;
+      padding: 26px 24px 46px;
+      font-weight: 400;
+      overflow: hidden;
+      border: 1px solid #ccd0d4;
+      border-radius: 5px;
+  }
+
+}
