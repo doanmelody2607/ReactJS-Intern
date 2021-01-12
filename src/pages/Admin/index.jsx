@@ -66,7 +66,7 @@ function Admin(props) {
                   </NavIcon>
                   <NavText>ListCars</NavText>
                 </NavItem>
-                <NavItem eventKey="typcars">
+                <NavItem eventKey="typecars">
                   <NavIcon>
                     <FaCarSide style={{ fontSize: 25 }} />
                   </NavIcon>

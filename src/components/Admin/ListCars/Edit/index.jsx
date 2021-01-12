@@ -1,14 +1,14 @@
 import Button from "@material-ui/core/Button";
 import productsApi from "api/productsApi";
+import { updateCars } from "features/Product/productSlice";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import Select from "react-select";
 import { Form, FormGroup, Input, Label } from "reactstrap";
-import { updateCars } from "features/Product/productSlice";
-import "./Edit.scss";
 import swal from "sweetalert";
 import isEmpty from "validator/lib/isEmpty";
+import "./Edit.scss";
 
 Create.propTypes = {};
 
@@ -40,7 +40,7 @@ function Create(props) {
     { value: "England", label: "England" },
     { value: "Spain", label: "Spain" },
   ];
-  console.log("cvc", origin);
+
   function handleOnsubmit(e) {
     e.preventDefault();
   }

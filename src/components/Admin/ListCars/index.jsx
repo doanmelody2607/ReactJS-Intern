@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from "react";
-import Tables from "./tables";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  loadCarList,
-  removeCar,
-  searchCar,
-} from "features/Product/productSlice";
-import productsApi from "api/productsApi";
-import { Link, useHistory, useRouteMatch } from "react-router-dom";
-
-import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import productsApi from "api/productsApi";
+import {
+  removeCar
+} from "features/Product/productSlice";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import "./table.scss";
+import Tables from "./tables";
 
 ListCars.propTypes = {};
 
 ListCars.defaultProps = {};
 function ListCars(props) {
   const dataCar = useSelector((state) => state.products);
-  console.log("data car", dataCar);
   const dispatch = useDispatch();
   const history = useHistory();
   const match = useRouteMatch();

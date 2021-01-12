@@ -6,19 +6,13 @@ import { useSelector } from "react-redux";
 import AboutUs from "../Modal";
 import "./Header.scss";
 
-import { makeStyles } from "@material-ui/core/styles";
-import Avatar from "@material-ui/core/Avatar";
-
 function Header(props) {
   const [modalShow, setModalShow] = useState(false);
   const isCheckSignIn = useSelector((state) => state.user.isCheckSignIn);
   const getUser = useSelector((state) => state.user.initialUser);
-  console.log("1", getUser);
-  console.log("2", localStorage.getItem("user"));
   const user = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : getUser;
-  console.log(user);
   function handleClickLogout() {
     localStorage.removeItem("isCheck");
     window.location.reload(false);

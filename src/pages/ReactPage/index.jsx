@@ -1,7 +1,7 @@
 import React from "react";
+import { Trans, useTranslation } from "react-i18next";
+import ControlCarousel from '../../components/Carousel';
 import logo from "../../logo.svg";
-import { useTranslation, Trans } from "react-i18next";
-import ControlCarousel from '../../components/Carousel'
 
 const ReactPage = () => {
   const { t, i18n } = useTranslation();

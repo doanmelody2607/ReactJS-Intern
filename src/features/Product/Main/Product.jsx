@@ -1,8 +1,8 @@
-import React from "react";
-import { CardDeck, Card, Button } from "react-bootstrap";
-import "./Product.scss";
-import { Link } from "react-router-dom";
 import AOS from "aos";
+import React from "react";
+import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "./Product.scss";
 
 const Product = (props) => {
   AOS.init();

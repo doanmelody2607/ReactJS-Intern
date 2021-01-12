@@ -15,6 +15,7 @@ function Main(props) {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   const handOnsubmit = (e) => {
     e.preventDefault();
   };
@@ -41,7 +42,7 @@ function Main(props) {
       localStorage.setItem("user", JSON.stringify(reponse));
       dispatch(action1);
       history.push("/");
-    } else console.log("khong");
+    }
   };
 
   return (
