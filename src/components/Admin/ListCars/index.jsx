@@ -12,6 +12,7 @@ import { Link, useHistory, useRouteMatch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import "./table.scss";
 
 ListCars.propTypes = {};
 
@@ -55,7 +56,7 @@ function ListCars(props) {
   }
 
   return (
-    <div>
+    <div className="listcars">
       <h1>LIST CARS</h1>
       <TextField
         id="filled-full-width"

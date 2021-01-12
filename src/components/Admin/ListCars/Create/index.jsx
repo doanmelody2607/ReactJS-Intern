@@ -8,7 +8,7 @@ import productsApi from "api/productsApi";
 import swal from "sweetalert";
 import { addCar } from "features/Product/productSlice";
 import { useHistory } from "react-router-dom";
-
+import isEmpty from "validator/lib/isEmpty";
 Create.propTypes = {};
 
 function Create(props) {
@@ -25,6 +25,8 @@ function Create(props) {
   const [origin, setOrigin] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState();
+
+  const [validationMsg, setValidationMsg] = useState("");
 
   const formData = {};
 
@@ -82,9 +84,33 @@ function Create(props) {
       };
     });
   }
+  //handle validationMsg
+  function validateAll() {
+    const msg = {};
+    if (isEmpty(name)) {
+      msg.name = "Please input your product name";
+    }
+    // let nameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
+    // if (!nameRegex.test(name)) msg.name = "Invalid name";
 
+    if (isEmpty(price)) {
+      msg.price = "Please input your product price";
+    }
+    // let priceRegex = /^\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?+$/;
+    // if (!priceRegex.test(price))
+    //   msg.price = "Price in valid, format: ex:2.000.000.";
+    if (isEmpty(origin)) {
+      msg.origin = "Please select product origin";
+    }
+
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
+  }
   //click button submit
   function handleSubmitForm() {
+    const isValid = validateAll();
+    if (!isValid) return;
     swal({
       title: "You have successfully added!",
       icon: "success",
@@ -106,7 +132,7 @@ function Create(props) {
     });
   }
 
-  function handleBackToListCar(){
+  function handleBackToListCar() {
     history.push("/admin/listcars");
   }
   return (
@@ -134,6 +160,9 @@ function Create(props) {
               id="nameCar"
               onChange={handleNameCar}
             />
+            <small className="text-danger font-italic">
+              {validationMsg.name}
+            </small>
           </FormGroup>
 
           <FormGroup>
@@ -144,6 +173,9 @@ function Create(props) {
               id="originCar"
               onChange={handleOriginCar}
             />
+            <small className="text-danger font-italic">
+              {validationMsg.origin}
+            </small>
           </FormGroup>
 
           <FormGroup>
@@ -154,6 +186,9 @@ function Create(props) {
               id="priceCar"
               onChange={handlePriceCar}
             />
+            <small className="text-danger font-italic">
+              {validationMsg.price}
+            </small>
           </FormGroup>
 
           <FormGroup>
@@ -179,7 +214,6 @@ function Create(props) {
             className="ml-3"
             variant="contained"
             onClick={handleBackToListCar}
-
           >
             Back To ListCars
           </Button>

@@ -8,6 +8,7 @@ import { Form, FormGroup, Input, Label } from "reactstrap";
 import { updateCars } from "features/Product/productSlice";
 import "./Edit.scss";
 import swal from "sweetalert";
+import isEmpty from "validator/lib/isEmpty";
 
 Create.propTypes = {};
 
@@ -22,7 +23,7 @@ function Create(props) {
   //useState of form
   const [img, setImg] = useState(findCarById ? findCarById.thumbail : "");
   const [name, setName] = useState(findCarById ? findCarById.name : "");
-  const [origin, setOrigin] = useState(findCarById ? findCarById.origin : "");
+  const [origin, setOrigin] = useState("");
   const [price, setPrice] = useState(findCarById ? findCarById.price : "");
   const [description, setDescription] = useState(
     findCarById ? findCarById.description : ""
@@ -30,6 +31,8 @@ function Create(props) {
   if (!findCarById) history.push("/admin/dashboard");
 
   const formData = {};
+
+  const [validationMsg, setValidationMsg] = useState("");
 
   const options = [
     { value: "German", label: "German" },
@@ -85,11 +88,33 @@ function Create(props) {
       };
     });
   }
-  {
-  }
 
+  //handle validationMsg
+  function validateAll() {
+    const msg = {};
+    // let nameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
+    // if (!nameRegex.test(name)) msg.name = "Name in valid";
+    if (isEmpty(name)) {
+      msg.name = "Please input your product name";
+    }
+    if (isEmpty(price)) {
+      msg.price = "Please input your product price";
+    }
+    // let priceRegex = /^\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?+$/;
+    // if (!priceRegex.test(price))
+    //   msg.price = "Price in valid, format: ex:2.000.000.";
+    if (isEmpty(origin)) {
+      msg.origin = "Please select product origin";
+    }
+
+    setValidationMsg(msg);
+    if (Object.keys(msg).length > 0) return false;
+    return true;
+  }
   //click button submit
   function handleSubmitForm() {
+    const isValid = validateAll();
+    if (!isValid) return;
     swal({
       title: "Are you sure update this car?",
       icon: "warning",
@@ -149,6 +174,9 @@ function Create(props) {
               value={name}
               onChange={handleNameCar}
             />
+            <small className="text-danger font-italic">
+              {validationMsg.name}
+            </small>
           </FormGroup>
 
           <FormGroup>
@@ -159,6 +187,9 @@ function Create(props) {
               options={options}
               onChange={handleOriginCar}
             />
+            <small className="text-danger font-italic">
+              {validationMsg.origin}
+            </small>
           </FormGroup>
 
           <FormGroup>
@@ -170,6 +201,9 @@ function Create(props) {
               value={price}
               onChange={handlePriceCar}
             />
+            <small className="text-danger font-italic">
+              {validationMsg.price}
+            </small>
           </FormGroup>
 
           <FormGroup>
