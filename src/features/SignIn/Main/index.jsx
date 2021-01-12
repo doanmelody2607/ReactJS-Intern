@@ -35,7 +35,7 @@ function Main(props) {
     const action = checkSignIn(true);
     if (reponse.length != 0) {
       dispatch(action);
-      
+
       const action1 = User(JSON.stringify(reponse));
       localStorage.setItem("isCheck", true);
       localStorage.setItem("user", JSON.stringify(reponse));
@@ -76,7 +76,11 @@ function Main(props) {
       </FormGroup>
       <FormGroup row>
         <Col sm={{ size: 10, offset: 4 }}>
-          <Button className="btn btn-danger" type="submit" onClick={handleClickLogin}>
+          <Button
+            className="btn btn-danger"
+            type="submit"
+            onClick={handleClickLogin}
+          >
             Login
           </Button>
           <Button href="/signup" className="ml-2">

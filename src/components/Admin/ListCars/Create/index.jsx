@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import { Form, FormGroup, Input, Label } from "reactstrap";
 import "./Create.scss";
 import Select from "react-select";

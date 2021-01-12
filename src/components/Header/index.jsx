@@ -6,16 +6,18 @@ import { useSelector } from "react-redux";
 import AboutUs from "../Modal";
 import "./Header.scss";
 
-import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
 
 function Header(props) {
   const [modalShow, setModalShow] = useState(false);
   const isCheckSignIn = useSelector((state) => state.user.isCheckSignIn);
   const getUser = useSelector((state) => state.user.initialUser);
-  console.log('1', getUser);
-  console.log('2', localStorage.getItem("user"));
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : getUser;
+  console.log("1", getUser);
+  console.log("2", localStorage.getItem("user"));
+  const user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : getUser;
   console.log(user);
   function handleClickLogout() {
     localStorage.removeItem("isCheck");
@@ -45,12 +47,17 @@ function Header(props) {
             </Nav.Link>
           </Nav>
           {isCheckSignIn ? (
-            <div className="d-flex align-items-center navbar__user-login">
-              <div className="mr-2">{user.length > 0 ? user[0].name : ''}</div>
-              <FaUserCircle style={{fontSize: 25}} />
-              <Button className="btn btn-danger navbar__user-logout ml-3" onClick={handleClickLogout}>
-                Log out
-              </Button>
+            <div className="align-items-center navbar__user-login">
+              <div className="mr-2">
+                {user.length > 0 ? user[0].name : ""}{" "}
+                <FaUserCircle style={{ fontSize: 25 }} />{" "}
+                <Button
+                  className="btn btn-danger navbar__user-logout"
+                  onClick={handleClickLogout}
+                >
+                  Log out
+                </Button>
+              </div>
             </div>
           ) : (
             <Button
@@ -74,4 +81,3 @@ function Header(props) {
 }
 
 export default Header;
-

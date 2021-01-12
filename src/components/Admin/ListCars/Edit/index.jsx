@@ -12,7 +12,7 @@ import swal from "sweetalert";
 Create.propTypes = {};
 
 function Create(props) {
-  //check id
+  //Check id
   const { carId } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
@@ -90,12 +90,6 @@ function Create(props) {
 
   //click button submit
   function handleSubmitForm() {
-    // swal({
-    //   title: "You have successfully added!",
-    //   icon: "success",
-    //   dangerMode: true,
-    // });
-
     swal({
       title: "Are you sure update this car?",
       icon: "warning",
