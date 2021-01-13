@@ -10,15 +10,15 @@ import swal from "sweetalert";
 import isEmpty from "validator/lib/isEmpty";
 import "./Edit.scss";
 
-Create.propTypes = {};
+Edit.propTypes = {};
 
-function Create(props) {
+function Edit(props) {
   //Check id
   const { carId } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
   const findCarById = useSelector((state) =>
-    state.products.find((x) => x.id === +carId)
+    state.products.find((x) => x.id === carId)
   );
   //useState of form
   const [img, setImg] = useState(findCarById ? findCarById.thumbail : "");
@@ -122,7 +122,7 @@ function Create(props) {
       buttons: true,
     }).then((willDelete) => {
       if (willDelete) {
-        formData.id = +carId;
+        formData.id = carId;
         formData.name = name;
         formData.description = description;
         formData.price = price;
@@ -239,4 +239,4 @@ function Create(props) {
   );
 }
 
-export default Create;
+export default Edit;

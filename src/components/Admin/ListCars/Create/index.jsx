@@ -9,13 +9,14 @@ import swal from "sweetalert";
 import { addCar } from "features/Product/productSlice";
 import { useHistory } from "react-router-dom";
 import isEmpty from "validator/lib/isEmpty";
+import {v4 as uuid} from "uuid";
 Create.propTypes = {};
 
 function Create(props) {
+ 
   const dispatch = useDispatch();
   const history = useHistory();
   //get length listcars
-  const lengthListCars = useSelector((state) => state.products.length) + 1;
 
   //useState of form
   const [img, setImg] = useState(() => {
@@ -109,6 +110,7 @@ function Create(props) {
   }
   //click button submit
   function handleSubmitForm() {
+    // alert(v4);
     const isValid = validateAll();
     if (!isValid) return;
     swal({
@@ -116,7 +118,7 @@ function Create(props) {
       icon: "success",
       dangerMode: true,
     });
-    formData.id = lengthListCars;
+    formData.id = uuid();
     formData.name = name;
     formData.description = description;
     formData.price = price;

@@ -25,7 +25,7 @@ const products = createSlice({
       const carIndex = state.findIndex((car) =>{
         console.log("new Cả1",newCar.id )
         console.log("new Cả",car.id )
-        return  car.id === +newCar.id;
+        return  car.id === newCar.id;
       });
       console.log("cvcss",carIndex);
       if (carIndex >= 0) {
