@@ -15,6 +15,7 @@ function Main(props) {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  
   const handOnsubmit = (e) => {
     e.preventDefault();
   };
@@ -35,13 +36,13 @@ function Main(props) {
     const action = checkSignIn(true);
     if (reponse.length != 0) {
       dispatch(action);
-      
+
       const action1 = User(JSON.stringify(reponse));
       localStorage.setItem("isCheck", true);
       localStorage.setItem("user", JSON.stringify(reponse));
       dispatch(action1);
       history.push("/");
-    } else console.log("khong");
+    }
   };
 
   return (
@@ -76,7 +77,11 @@ function Main(props) {
       </FormGroup>
       <FormGroup row>
         <Col sm={{ size: 10, offset: 4 }}>
-          <Button className="btn btn-danger" type="submit" onClick={handleClickLogin}>
+          <Button
+            className="btn btn-danger"
+            type="submit"
+            onClick={handleClickLogin}
+          >
             Login
           </Button>
           <Button href="/signup" className="ml-2">

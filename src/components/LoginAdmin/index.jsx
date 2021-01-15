@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { FaLockOpen, FaUserTie } from "react-icons/fa";
 import { SiMercedes } from "react-icons/si";
-import { FaUserTie, FaLockOpen } from "react-icons/fa";
 import { useHistory } from "react-router-dom";
-import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import "./LoginAdmin.scss";
 
 LoginAdmin.propTypes = {};

@@ -1,24 +1,27 @@
 import Button from "@material-ui/core/Button";
 import productsApi from "api/productsApi";
+import { updateCars } from "features/Product/productSlice";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import Select from "react-select";
 import { Form, FormGroup, Input, Label } from "reactstrap";
-import { updateCars } from "features/Product/productSlice";
-import "./Edit.scss";
 import swal from "sweetalert";
 import isEmpty from "validator/lib/isEmpty";
+<<<<<<< HEAD
+=======
+import "./Edit.scss";
+>>>>>>> 73088e956a78eb644577bc7dc5a3adf0224f3c57
 
-Create.propTypes = {};
+Edit.propTypes = {};
 
-function Create(props) {
-  //check id
+function Edit(props) {
+  //Check id
   const { carId } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
   const findCarById = useSelector((state) =>
-    state.products.find((x) => x.id === +carId)
+    state.products.find((x) => x.id === carId)
   );
   //useState of form
   const [img, setImg] = useState(findCarById ? findCarById.thumbail : "");
@@ -40,7 +43,7 @@ function Create(props) {
     { value: "England", label: "England" },
     { value: "Spain", label: "Spain" },
   ];
-  console.log("cvc", origin);
+
   function handleOnsubmit(e) {
     e.preventDefault();
   }
@@ -92,8 +95,13 @@ function Create(props) {
   //handle validationMsg
   function validateAll() {
     const msg = {};
+<<<<<<< HEAD
     let nameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
     if (!nameRegex.test(name)) msg.name = "Name in valid";
+=======
+    // let nameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
+    // if (!nameRegex.test(name)) msg.name = "Name in valid";
+>>>>>>> 73088e956a78eb644577bc7dc5a3adf0224f3c57
     if (isEmpty(name)) {
       msg.name = "Please input your product name";
     }
@@ -122,7 +130,7 @@ function Create(props) {
       buttons: true,
     }).then((willDelete) => {
       if (willDelete) {
-        formData.id = +carId;
+        formData.id = carId;
         formData.name = name;
         formData.description = description;
         formData.price = price;
@@ -239,4 +247,4 @@ function Create(props) {
   );
 }
 
-export default Create;
+export default Edit;

@@ -1,7 +1,7 @@
-import { CellParams, ColDef, DataGrid, GridApi } from "@material-ui/data-grid";
+import { ColDef, DataGrid } from "@material-ui/data-grid";
 import * as React from "react";
-import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
+import { FaEdit } from "react-icons/fa";
 import swal from "sweetalert";
 import "./table.scss";
 

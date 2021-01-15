@@ -1,23 +1,20 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
-import Homepage from "pages/Homepage";
-import SignInPage from "features/SignIn/Main";
 import SignUpPage from "components/SignUp";
+import SignInPage from "features/SignIn/Main";
+import Homepage from "pages/Homepage";
 import React from "react";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  BrowserRouter,
-  useRouteMatch,
+  Route, Switch,
+  useRouteMatch
 } from "react-router-dom";
 
 Customer.propTypes = {};
 
 function Customer(props) {
   const match = useRouteMatch();
-  console.log(match);
-
+ 
   return (
     <Router>
       <Header />

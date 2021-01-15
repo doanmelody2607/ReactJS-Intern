@@ -3,7 +3,6 @@ import axiosClient from "./axiosClient";
 const usersApi = {
   getAll: (params) => {
     const url = "/user";
-    console.log(params);
     return axiosClient.get(url, { params });
   },
   get: (id) => {
