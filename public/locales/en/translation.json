@@ -1,7 +1,28 @@
 {
-    "title": "Welcome to <bold>react</bold> using react-i18next",
-    "description": {
-      "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
-      "part2": "Switch language between english and german using buttons above."
+  "header":{
+    "home":"Home",
+    "about":"About",
+    "services":"Services",
+    "signin":"Sign In",
+    "logout":"Log out"
+  },   
+  "banner":{
+    "title1": "Mercedes-AMG GT",
+    "content1":"Pioneering the way - experiencing a different drive.",
+
+    "title2": "Mercedes-AMG GT R'",
+    "content2": "The Mercedes-AMG GT combines a charming V8 feel with surprisingly superior everyday utility.",
+   
+    "title3": "Luxury - Safety",
+    "content3": "Outstanding athleticism - for maximum autonomy"
+  },
+  "footer":{
+    "aboutus": "About Us",
+    "aboutus-details":{
+       
     }
+
+
   }
+  
+}

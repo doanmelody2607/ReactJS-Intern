@@ -1,8 +1,10 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import "./Carousel.scss";
 
 const ControlCarousel = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <Carousel className="carousel">
@@ -13,8 +15,8 @@ const ControlCarousel = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>Mercedes-AMG GT</h3>
-            <p>Tiên phong dẫn lối - trải nghệm lái khác biệt.</p>
+            <h3>{t("banner.title1")}</h3>
+            <p>{t("banner.content1")}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={1000}>
@@ -24,8 +26,8 @@ const ControlCarousel = () => {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h3>Mercedes-AMG GT R'</h3>
-            <p>LMercedes-AMG GT kết hợp cảm giác V8 quyến rũ với tính tiện ích hàng ngày vượt trội đáng kinh ngạc.</p>
+            <h3>{t("banner.title2")}</h3>
+            <p>{t("banner.content2")}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={900}>
@@ -35,10 +37,8 @@ const ControlCarousel = () => {
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h3>Sang trọng - An toàn</h3>
-            <p>
-                Chất thể thao vượt trội - đảm bảo tính tự chủ tối đa.
-            </p>
+            <h3>{t("banner.title3")}</h3>
+            <p>{t("banner.content3")}</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

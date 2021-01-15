@@ -1,7 +1,20 @@
-{
-  "title": "Chào mừng bạn đến với sử dụng react-i18next",
-  "description": {
-    "part1": "Để bắt đàu, chỉnh sửa <1>src/App.js</1> lưu và tải lại.",
-    "part2": "Thay đổi ngôn ngữ tiếng việt, tiếng pháp, tiếng anh bằng các nút ở trên."
+ {
+    "header":{
+      "home":"Trang chủ",
+      "about":"Về chúng tôi",
+      "services":"Dịch vụ",
+      "signin":"Đăng nhập",
+      "logout":"Đăng xuất"
+    },   
+    "banner":{
+      "title1":"Mercedes-AMG GT",
+      "content1":"Tiên phong dẫn lối - trải nghệm lái khác biệt.",
+
+      
+    "title2": "Mercedes-AMG GT R'",
+    "content2": "Mercedes-AMG GT kết hợp cảm giác V8 quyến rũ với tính tiện ích hàng ngày vượt trội đáng kinh ngạc.",
+    
+    "title3": "Sang trọng - An toàn",
+    "content3": "Chất thể thao vượt trội - đảm bảo tính tự chủ tối đa."
+    }
   }
-}
