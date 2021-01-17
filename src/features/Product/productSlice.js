@@ -23,14 +23,10 @@ const products = createSlice({
       const newCar = action.payload;
       
       const carIndex = state.findIndex((car) =>{
-        console.log("new Cả1",newCar.id )
-        console.log("new Cả",car.id )
         return  car.id === newCar.id;
       });
-      console.log("cvcss",carIndex);
       if (carIndex >= 0) {
         state[carIndex] = newCar;
-        console.log("cvcss");
       }
     },
   },

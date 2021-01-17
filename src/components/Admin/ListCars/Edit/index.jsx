@@ -8,10 +8,7 @@ import Select from "react-select";
 import { Form, FormGroup, Input, Label } from "reactstrap";
 import swal from "sweetalert";
 import isEmpty from "validator/lib/isEmpty";
-<<<<<<< HEAD
-=======
 import "./Edit.scss";
->>>>>>> 73088e956a78eb644577bc7dc5a3adf0224f3c57
 
 Edit.propTypes = {};
 
@@ -95,13 +92,8 @@ function Edit(props) {
   //handle validationMsg
   function validateAll() {
     const msg = {};
-<<<<<<< HEAD
-    let nameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
-    if (!nameRegex.test(name)) msg.name = "Name in valid";
-=======
     // let nameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
     // if (!nameRegex.test(name)) msg.name = "Name in valid";
->>>>>>> 73088e956a78eb644577bc7dc5a3adf0224f3c57
     if (isEmpty(name)) {
       msg.name = "Please input your product name";
     }
@@ -160,7 +152,7 @@ function Edit(props) {
     <div className="form__edit">
       <Form className="row" onSubmit={handleOnsubmit}>
         <div className="form__edit-img col-sm-12 col-md-6 col-6">
-          <div className="form__eidt-img-block">
+          <div className="form__edit-img-block">
             <img className="" src={img} />
             <FormGroup className="mt-5">
               <Input
@@ -179,7 +171,6 @@ function Edit(props) {
               type="text"
               name="nameCar"
               id="nameCar"
-              value={name}
               onChange={handleNameCar}
             />
             <small className="text-danger font-italic">
@@ -190,9 +181,9 @@ function Edit(props) {
           <FormGroup>
             <Label for="originCar">Origin</Label>
             <Select
+              options={options}
               name="originCar"
               id="originCar"
-              options={options}
               onChange={handleOriginCar}
             />
             <small className="text-danger font-italic">
@@ -206,7 +197,6 @@ function Edit(props) {
               type="text"
               name="priceCar"
               id="priceCar"
-              value={price}
               onChange={handlePriceCar}
             />
             <small className="text-danger font-italic">
@@ -220,7 +210,6 @@ function Edit(props) {
               type="textarea"
               name="descriptionCar"
               id="descriptionCar"
-              value={description}
               onChange={handleDescriptionCar}
             />
           </FormGroup>

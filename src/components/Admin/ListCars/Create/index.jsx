@@ -9,14 +9,10 @@ import swal from "sweetalert";
 import { addCar } from "features/Product/productSlice";
 import { useHistory } from "react-router-dom";
 import isEmpty from "validator/lib/isEmpty";
-<<<<<<< HEAD
-=======
-import {v4 as uuid} from "uuid";
->>>>>>> 73088e956a78eb644577bc7dc5a3adf0224f3c57
+import { v4 as uuid } from "uuid";
 Create.propTypes = {};
 
 function Create(props) {
- 
   const dispatch = useDispatch();
   const history = useHistory();
   //get length listcars
@@ -94,13 +90,8 @@ function Create(props) {
     if (isEmpty(name)) {
       msg.name = "Please input your product name";
     }
-<<<<<<< HEAD
-    let nameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
-    if (!nameRegex.test(name)) msg.name = "Name in valid";
-=======
     // let nameRegex = /^[a-zA-Z0-9]+([a-zA-Z0-9](_|-| )[a-zA-Z0-9])*[a-zA-Z0-9]+$/;
     // if (!nameRegex.test(name)) msg.name = "Invalid name";
->>>>>>> 73088e956a78eb644577bc7dc5a3adf0224f3c57
 
     if (isEmpty(price)) {
       msg.price = "Please input your product price";
@@ -118,10 +109,7 @@ function Create(props) {
   }
   //click button submit
   function handleSubmitForm() {
-<<<<<<< HEAD
-=======
     // alert(v4);
->>>>>>> 73088e956a78eb644577bc7dc5a3adf0224f3c57
     const isValid = validateAll();
     if (!isValid) return;
     swal({

@@ -1,11 +1,21 @@
-export default function validateInfo(values) {
-  let errors = {};
+import usersApi from "api/usersApi";
 
+const getUser = async (values) => {
+  const reponse = await usersApi.getAll({ username: values.username });
+  return reponse;
+};
+
+const validateInfo = async (values) => {
+  const errors = {};
+  //call api user
+  const existedUser = await getUser(values);
   //Username
   if (!values.username.trim()) {
     errors.username = "Username is required";
   }
-
+  if (existedUser.length === 1) {
+    errors.username = "Username is existed";
+  }
   //Email
   if (!values.email) {
     errors.email = "Email is required";
@@ -28,4 +38,6 @@ export default function validateInfo(values) {
   }
 
   return errors;
-}
+};
+
+export default validateInfo;
