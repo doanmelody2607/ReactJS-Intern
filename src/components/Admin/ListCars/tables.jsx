@@ -10,12 +10,12 @@ function tables(props) {
   const rows = dataCar;
 
   const columns: ColDef[] = [
-    { field: "name", headerName: "Name", width: 200 },
-    { field: "description", headerName: "Description", width: 200 },
+    { field: "name", headerName: "Name", width: 250 },
+    { field: "description", headerName: "Description", width: 240 },
     {
       field: "price",
       headerName: "Price",
-      width: 200,
+      width: 190,
     },
     {
       field: "origin",
@@ -25,7 +25,7 @@ function tables(props) {
     {
       field: "thumbail",
       headerName: "Thumbail",
-      width: 130,
+      width: 140,
 
       renderCell: (params) => {
         return <img className="w-100" src={params.getValue("thumbail")} />;
@@ -35,7 +35,7 @@ function tables(props) {
       field: "id",
       headerName: "Action",
       sortable: false,
-      width: 130,
+      width: 100,
       disableClickEventBubbling: true,
       renderCell: (params) => {
         const handleEdit = () => {
@@ -69,8 +69,8 @@ function tables(props) {
   ];
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid rows={rows} columns={columns} pageSize={5} />
+    <div style={{ height: 450, width: "100%" }}>
+      <DataGrid rows={rows} columns={columns} pageSize={10} />
     </div>
   );
 }

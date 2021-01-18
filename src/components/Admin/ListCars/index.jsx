@@ -1,23 +1,28 @@
+import React, { useEffect, useState } from "react";
+import Tables from "./tables";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  loadCarList,
+  removeCar,
+  searchCar,
+} from "features/Product/productSlice";
+import productsApi from "api/productsApi";
+import { Link, useHistory, useRouteMatch } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import productsApi from "api/productsApi";
-import {
-  removeCar
-} from "features/Product/productSlice";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useRouteMatch } from "react-router-dom";
-import "./table.scss";
-import Tables from "./tables";
+import { Input } from "reactstrap";
 
 ListCars.propTypes = {};
 
 ListCars.defaultProps = {};
 function ListCars(props) {
   const dataCar = useSelector((state) => state.products);
+  console.log("data car", dataCar);
   const dispatch = useDispatch();
   const history = useHistory();
   const match = useRouteMatch();
+
   const [dataxx, setDataxx] = useState(() => {
     return [];
   });
@@ -51,9 +56,29 @@ function ListCars(props) {
   }
 
   return (
-    <div className="listcars">
-      <h1>LIST CARS</h1>
-      <TextField
+    <div className="listcar">
+      <div className="d-flex  align-items-center">
+        <h1 className="w-75">LIST CARS</h1>
+        <Input
+          type="text"
+          className="w-25"
+          placeholder="Search"
+          onKeyUp={handleSearch}
+        />
+      </div>
+      <div className="mt-2 mb-2 ">
+        <Tables
+          dataCar={dataxx}
+          onReceiveDeleteCar={handleDeleteCar}
+          onReceiveEditCar={handleEditCar}
+        />
+      </div>
+      <div>
+        <Button onClick={handleCreateCar} variant="contained" color="secondary">
+          Add Product
+        </Button>
+      </div>
+      {/* <TextField
         id="filled-full-width"
         style={{ margin: 0 }}
         placeholder="Seacrh"
@@ -64,16 +89,7 @@ function ListCars(props) {
         }}
         variant="filled"
         onKeyUp={handleSearch}
-      />
-      <Tables
-        dataCar={dataxx}
-        onReceiveDeleteCar={handleDeleteCar}
-        onReceiveEditCar={handleEditCar}
-      />
-      <br />
-      <Button onClick={handleCreateCar} variant="contained" color="secondary">
-        Add Product
-      </Button>
+      /> */}
     </div>
   );
 }

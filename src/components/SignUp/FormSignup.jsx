@@ -1,5 +1,5 @@
 import React from "react";
-import "./Form.css";
+import "./Form.scss";
 import useForm from "./useForm";
 import validate from "./validateInfo";
 
@@ -13,6 +13,21 @@ const FormSignUp = ({ submitForm }) => {
     <div className="form-content-right">
       <form onSubmit={handleSubmit} className="form" noValidate>
         <h1>Sign Up New Account!</h1>
+        <div className="form-inputs">
+          <label htmlFor="name" className="form-label">
+            Name
+          </label>
+          <input
+            className="form-input"
+            type="text"
+            name="name"
+            className="form-input"
+            placeholder="Enter your name"
+            value={values.name}
+            onChange={handleChange}
+          />
+          {errors.name && <p>{errors.name}</p>}
+        </div>
         <div className="form-inputs">
           <label htmlFor="username" className="form-label">
             Username
@@ -70,7 +85,7 @@ const FormSignUp = ({ submitForm }) => {
             type="password"
             name="password2"
             className="form-input"
-            placeholder="Enter your password2"
+            placeholder="Confirm your password"
             value={values.password2}
             onChange={handleChange}
           />

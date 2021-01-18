@@ -1,7 +1,15 @@
 $color: rgb(221, 45, 45);
 
 .content{
-    margin: 10% auto;
-    width: 80%;
-
+    // margin: 2% auto;
+    // width: 80%;
+    &__siderbar{
+        width: 5%;
+    
+        // overflow: hidden;
+    }
+    &__main{
+        width: 95%;
+      
+    }
 }

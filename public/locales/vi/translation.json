@@ -4,7 +4,10 @@
       "about":"Về chúng tôi",
       "services":"Dịch vụ",
       "signin":"Đăng nhập",
-      "logout":"Đăng xuất"
+      "logout":"Đăng xuất",
+      "register": "Đăng ký",
+      "username": "Tài khoản",
+      "password": "Mật khẩu"
     },   
     "banner":{
       "title1":"Mercedes-AMG GT",

@@ -16,8 +16,8 @@ const Product = (props) => {
       className="product col-xs-4 col-sm-4 col-md-4 col-lg-4"
     >
       <Card border="light">
-        <Link to={`/${product.id}`}>
-          <Card.Img variant="top" src={product.thumbail} />
+        <Link to={`/${product.id}`} className="light__img ">
+          <Card.Img variant="top" className="" src={product.thumbail} />
         </Link>
 
         <Card.Body>
@@ -26,11 +26,7 @@ const Product = (props) => {
         </Card.Body>
 
         <Card.Footer border="light">
-          <Button
-            variant="outline-dark"
-            size="sm"
-            block
-          >
+          <Button variant="outline-dark" size="sm" block>
             Add to Cart
           </Button>
         </Card.Footer>

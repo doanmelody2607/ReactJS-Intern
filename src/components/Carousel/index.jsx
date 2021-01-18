@@ -7,13 +7,14 @@ const ControlCarousel = () => {
   const { t } = useTranslation();
   return (
     <div>
-      <Carousel className="carousel">
-        <Carousel.Item interval={1100}>
+      <Carousel className="carousel ">
+        <Carousel.Item interval={1100} class="slide">
           <img
-            className="d-block w-100"
+            className="img-fluid"
             src="https://images.pexels.com/photos/241316/pexels-photo-241316.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt="First slide"
           />
+          {/* <div className="first_slide">df</div> */}
           <Carousel.Caption>
             <h3>{t("banner.title1")}</h3>
             <p>{t("banner.content1")}</p>
@@ -21,7 +22,7 @@ const ControlCarousel = () => {
         </Carousel.Item>
         <Carousel.Item interval={1000}>
           <img
-            className="d-block w-100"
+            className="img-fluid"
             src="https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt="Third slide"
           />
@@ -32,7 +33,7 @@ const ControlCarousel = () => {
         </Carousel.Item>
         <Carousel.Item interval={900}>
           <img
-            className="d-block w-100"
+            className="img-fluid"
             src="https://images.pexels.com/photos/4056593/pexels-photo-4056593.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt="Third slide"
           />

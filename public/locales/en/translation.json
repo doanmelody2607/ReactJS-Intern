@@ -4,7 +4,10 @@
     "about":"About",
     "services":"Services",
     "signin":"Sign In",
-    "logout":"Log out"
+    "logout":"Log out",
+    "register": "Register",
+    "username": "Username",
+    "password": "Password"
   },   
   "banner":{
     "title1": "Mercedes-AMG GT",

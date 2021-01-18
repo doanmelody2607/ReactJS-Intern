@@ -9,11 +9,10 @@ import swal from "sweetalert";
 import { addCar } from "features/Product/productSlice";
 import { useHistory } from "react-router-dom";
 import isEmpty from "validator/lib/isEmpty";
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 Create.propTypes = {};
 
 function Create(props) {
- 
   const dispatch = useDispatch();
   const history = useHistory();
   //get length listcars

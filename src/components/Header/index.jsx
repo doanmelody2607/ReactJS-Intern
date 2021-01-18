@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Nav, Navbar } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { FaUserCircle } from "react-icons/fa";
 import { SiMercedes } from "react-icons/si";
@@ -24,8 +24,7 @@ function Header(props) {
   function handleLangues(e) {
     i18n.changeLanguage(e.target.value);
   }
-
-  const getLang = i18n.languages[0] ? "selected" : "";
+  const checkSelect = i18n.languages[0] === "vi" ? "selected" : "";
   return (
     <>
       <Navbar className="navbar " variant="light" expand="lg" sticky="top">
@@ -82,7 +81,7 @@ function Header(props) {
               <option lang="en" value="en" id="vietnamese-img">
                 English
               </option>
-              <option lang="vi" value="vi">
+              <option lang="vi" value="vi" selected={checkSelect}>
                 Tiếng Việt
               </option>
             </select>
