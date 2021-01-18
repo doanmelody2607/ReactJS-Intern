@@ -72,19 +72,21 @@ function Header(props) {
               {t("header.signin")}
             </Button>
           )}
-          <select
-            name="language-picker-select"
-            id="language-picker-select"
-            onChange={handleLangues}
-            className="ml-3"
-          >
-            <option lang="en" value="en" id="vietnamese-img">
-              English
-            </option>
-            <option lang="vi" value="vi">
-              Tiếng Việt
-            </option>
-          </select>
+          <Nav className="mt-2">
+            <select
+              name="language-picker-select"
+              id="language-picker-select"
+              onChange={handleLangues}
+              className="ml-3"
+            >
+              <option lang="en" value="en" id="vietnamese-img">
+                English
+              </option>
+              <option lang="vi" value="vi">
+                Tiếng Việt
+              </option>
+            </select>
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
       <AboutUs show={modalShow} onHide={() => setModalShow(false)} />
