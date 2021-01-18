@@ -120,7 +120,10 @@ function Edit(props) {
       title: "Are you sure update this car?",
       icon: "warning",
       dangerMode: true,
-      buttons: true,
+      buttons: {
+        confirm: "Yes",
+        cancel: "Cancel",
+      },
     }).then((willDelete) => {
       if (willDelete) {
         formData.id = carId;
@@ -129,7 +132,6 @@ function Edit(props) {
         formData.price = price;
         formData.origin = origin;
         formData.thumbail = img;
-        console.log("form data", formData);
         swal("Done", {
           icon: "success",
           dangerMode: true,
@@ -152,7 +154,7 @@ function Edit(props) {
   return (
     <div className="form__edit">
       <Form className="row" onSubmit={handleOnsubmit}>
-        <div className="form__edit-img col-12 col-sm-12 col-md-12 ">
+        <div className="form__edit-img  col-sm-12 col-md-6 col-6">
           <div className="form__edit-img-block">
             <img className="" src={img} />
             <FormGroup className="mt-5">
@@ -165,7 +167,7 @@ function Edit(props) {
             </FormGroup>
           </div>
         </div>
-        <div className="  col-12 col-sm-12 col-md-12">
+        <div className="   col-sm-12 col-md-6 col-6">
           <FormGroup>
             <Label for="nameCar">Name</Label>
             <Input

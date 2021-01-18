@@ -6,6 +6,7 @@ import { SiMercedes } from "react-icons/si";
 import { useSelector } from "react-redux";
 import AboutUs from "../Modal";
 import "./Header.scss";
+import Langvi from "../../images/vi.png";
 
 function Header(props) {
   const [modalShow, setModalShow] = useState(false);
@@ -78,12 +79,7 @@ function Header(props) {
               onChange={handleLangues}
               className="ml-3"
             >
-              <option
-                lang="en"
-                value="en"
-                id="vietnamese-img"
-                style={{ color: red }}
-              >
+              <option lang="en" value="en" id="vietnamese-img">
                 English
               </option>
               <option lang="vi" value="vi" selected={checkSelect}>

@@ -2,4 +2,16 @@ $darkColor: black;
 
 .product {
     margin-top: 80px;
+
+    .light__img {
+        display: block;
+        padding: 5%;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .light__img:hover {
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
 }
