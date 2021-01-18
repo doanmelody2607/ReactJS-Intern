@@ -21,6 +21,7 @@ function Edit(props) {
     state.products.find((x) => x.id === carId)
   );
   //useState of form
+
   const [img, setImg] = useState(findCarById ? findCarById.thumbail : "");
   const [name, setName] = useState(findCarById ? findCarById.name : "");
   const [origin, setOrigin] = useState("");
@@ -151,7 +152,7 @@ function Edit(props) {
   return (
     <div className="form__edit">
       <Form className="row" onSubmit={handleOnsubmit}>
-        <div className="form__edit-img col-sm-12 col-md-6 col-6">
+        <div className="form__edit-img col-12 col-sm-12 col-md-12 ">
           <div className="form__edit-img-block">
             <img className="" src={img} />
             <FormGroup className="mt-5">
@@ -164,13 +165,14 @@ function Edit(props) {
             </FormGroup>
           </div>
         </div>
-        <div className=" col-sm-12 col-md-6 col-6">
+        <div className="  col-12 col-sm-12 col-md-12">
           <FormGroup>
             <Label for="nameCar">Name</Label>
             <Input
               type="text"
               name="nameCar"
               id="nameCar"
+              value={name}
               onChange={handleNameCar}
             />
             <small className="text-danger font-italic">
@@ -197,6 +199,7 @@ function Edit(props) {
               type="text"
               name="priceCar"
               id="priceCar"
+              value={price}
               onChange={handlePriceCar}
             />
             <small className="text-danger font-italic">
@@ -210,6 +213,7 @@ function Edit(props) {
               type="textarea"
               name="descriptionCar"
               id="descriptionCar"
+              value={description}
               onChange={handleDescriptionCar}
             />
           </FormGroup>

@@ -5,15 +5,25 @@ const getUser = async (values) => {
   return reponse;
 };
 
+const getEmail = async (values) => {
+  const reponse = await usersApi.getAll({ email: values.email });
+  return reponse;
+};
+
 const validateInfo = async (values) => {
   const errors = {};
   //call api user
   const existedUser = await getUser(values);
+  //call api email
+  const existedEmail = await getEmail(values);
+  //Name
+  if (!values.name) {
+    errors.name = "Name is required";
+  }
   //Username
   if (!values.username.trim()) {
     errors.username = "Username is required";
-  }
-  if (existedUser.length === 1) {
+  } else if (existedUser.length === 1) {
     errors.username = "Username is existed";
   }
   //Email
@@ -21,8 +31,9 @@ const validateInfo = async (values) => {
     errors.email = "Email is required";
   } else if (!/\S+@\S+\.\S+/.test(values.email)) {
     errors.email = "Email address is invalid";
+  } else if (existedEmail.length === 1) {
+    errors.email = "Email is existed";
   }
-
   //Password
   if (!values.password) {
     errors.password = "Password is required";

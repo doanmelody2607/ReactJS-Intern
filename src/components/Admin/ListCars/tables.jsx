@@ -60,8 +60,8 @@ function tables(props) {
         return (
           <span className="icon-action ">
             {" "}
-            <FaEdit onClick={handleEdit} />{" "}
-            <AiFillDelete onClick={handleDelete} />{" "}
+            <FaEdit onClick={handleEdit} title="Edit" />{" "}
+            <AiFillDelete onClick={handleDelete} title="Delete" />{" "}
           </span>
         );
       },

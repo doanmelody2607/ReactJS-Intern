@@ -47,7 +47,7 @@ function LoginAdmin(props) {
             type="text"
             name="username"
             id="username"
-            placeholder="@Enter your username"
+            placeholder="Enter your username"
             onChange={handleUserName}
           />
         </FormGroup>
@@ -59,7 +59,7 @@ function LoginAdmin(props) {
             type="password"
             name="password"
             id="password"
-            placeholder="@Enter your password"
+            placeholder="Enter your password"
             onChange={handlePassword}
           />
         </FormGroup>

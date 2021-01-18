@@ -1,5 +1,6 @@
 import usersApi from "api/usersApi";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Button, Col, Form, FormGroup, Input, Label } from "reactstrap";
@@ -11,11 +12,13 @@ Main.propTypes = {};
 Main.defaultProps = {};
 
 function Main(props) {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handOnsubmit = (e) => {
     e.preventDefault();
   };
@@ -49,28 +52,28 @@ function Main(props) {
     <Form onSubmit={handOnsubmit} className="form__signin">
       <FormGroup row>
         <Label for="username" sm={4}>
-          User name:{" "}
+          {t("header.username")}
         </Label>
         <Col sm={8}>
           <Input
             type="text"
             name="username"
             id="username"
-            placeholder="username"
+            placeholder={t("header.username")}
             onChange={handleUserName}
           />
         </Col>
       </FormGroup>
       <FormGroup row>
         <Label for="password" sm={4}>
-          Password:{" "}
+          {t("header.password")}
         </Label>
         <Col sm={8}>
           <Input
             type="password"
             name="password"
             id="password"
-            placeholder="password"
+            placeholder={t("header.password")}
             onChange={handlePassword}
           />
         </Col>
@@ -82,10 +85,10 @@ function Main(props) {
             type="submit"
             onClick={handleClickLogin}
           >
-            Login
+            {t("header.signin")}
           </Button>
           <Button href="/signup" className="ml-2">
-            Register
+            {t("header.register")}
           </Button>
         </Col>
       </FormGroup>

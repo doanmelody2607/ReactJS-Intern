@@ -7,7 +7,7 @@ import "./Product.scss";
 const Product = (props) => {
   AOS.init();
 
-  const { product, onAdd } = props;
+  const { product } = props;
 
   return (
     <div
@@ -28,7 +28,6 @@ const Product = (props) => {
         <Card.Footer border="light">
           <Button
             variant="outline-dark"
-            onClick={() => onAdd(product)}
             size="sm"
             block
           >

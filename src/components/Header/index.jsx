@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Nav, Navbar } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 import { FaUserCircle } from "react-icons/fa";
 import { SiMercedes } from "react-icons/si";
 import { useSelector } from "react-redux";
@@ -17,6 +18,13 @@ function Header(props) {
     localStorage.removeItem("isCheck");
     window.location.reload(false);
   }
+
+  const { t, i18n } = useTranslation();
+
+  function handleLangues(e) {
+    i18n.changeLanguage(e.target.value);
+  }
+  const checkSelect = i18n.languages[0] === "vi" ? "selected" : "";
   return (
     <>
       <Navbar className="navbar " variant="light" expand="lg" sticky="top">
@@ -27,17 +35,17 @@ function Header(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/" className="ml-3">
-              Home
+              {t("header.home")}
             </Nav.Link>
             <Nav.Link
               href=""
               className="ml-3"
               onClick={() => setModalShow(true)}
             >
-              About
+              {t("header.about")}
             </Nav.Link>
             <Nav.Link href="/services" className="ml-3">
-              Services
+              {t("header.services")}
             </Nav.Link>
           </Nav>
           {isCheckSignIn ? (
@@ -49,7 +57,7 @@ function Header(props) {
                   className="btn btn-danger navbar__user-logout"
                   onClick={handleClickLogout}
                 >
-                  Log out
+                  {t("header.logout")}
                 </Button>
               </div>
             </div>
@@ -60,15 +68,31 @@ function Header(props) {
               variant="outline-danger"
               inline-block
             >
-              Sign In
+              {t("header.signin")}
             </Button>
           )}
-          <NavDropdown title="Vietnamese" id="basic-nav-dropdown">
-            <NavDropdown.Item>English</NavDropdown.Item>
-          </NavDropdown>
+          <Nav className="mt-2">
+            <select
+              name="language-picker-select"
+              id="language-picker-select"
+              onChange={handleLangues}
+              className="ml-3"
+            >
+              <option
+                lang="en"
+                value="en"
+                id="vietnamese-img"
+                style={{ color: red }}
+              >
+                English
+              </option>
+              <option lang="vi" value="vi" selected={checkSelect}>
+                Tiếng Việt
+              </option>
+            </select>
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
-
       <AboutUs show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );

@@ -1,3 +1,4 @@
+import usersApi from "api/usersApi";
 import { useEffect, useState } from "react";
 
 const useForm = (callBack, validate) => {
@@ -30,7 +31,7 @@ const useForm = (callBack, validate) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       callBack();
-      console.log("values", values);
+      usersApi.post(values);
     }
   }, [errors]);
 
